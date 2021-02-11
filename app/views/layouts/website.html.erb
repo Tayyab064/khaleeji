@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="icon" href="bin/admin/images/logo/favicon.png" type="image/png" sizes="32x32">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/default/vendor/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="assets/default/vendor/bootstrap/css/bootstrap-3.2.rtl.css"/>
+    <link rel="stylesheet" href="assets/default/vendor/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="assets/default/vendor/owlcarousel/dist/assets/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="assets/default/vendor/raty/jquery.raty.css"/>
+    <link rel="stylesheet" href="assets/default/view/fluid-player-master/fluidplayer.min.css"/>
+    <link rel="stylesheet" href="assets/default/vendor/simplepagination/simplePagination.css"/>
+    <link rel="stylesheet" href="assets/default/vendor/easyautocomplete/easy-autocomplete.css"/>
+    <link rel="stylesheet" href="assets/default/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css"/>
+    <link rel="stylesheet" href="assets/default/vendor/jquery-te/jquery-te-1.4.0.css"/>
+    <link rel="stylesheet" href="assets/default/stylesheets/vendor/mdi/css/materialdesignicons.min.css"/>
+            <link rel="stylesheet" href="assets/default/stylesheets/view-custom.css%3Ftime=1612636466.css"/>
+        <link rel="stylesheet" href="assets/default/stylesheets/view-responsive.css"/>
+
+        <script type="application/javascript" src="assets/default/vendor/jquery/jquery.min.js"></script>
+    <title>CKhaleeji
+</title>
+    </head>
+<body>
+<div class="container-fluid">
+    <div class="row line-header"></div>
+    <div class="col-md-10 col-md-offset-1">
+        <div class="row middle-header">
+            <div class="col-md-3 col-xs-12 tab-con">
+                <div class="row">
+                    <a href="<%= root_path %>">
+                        <img src="bin/admin/images/logo/main-logo.png" alt="CKhaleeji" class="logo-icon"/>
+                        <!-- <img src="bin/admin/images/logo/logotype.png" alt="CKhaleeji" class="logo-type"/> -->
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-5 col-xs-12 tab-con">
+                <!-- <div class="row search-box">
+                    <form action="https://academy.prodevelopers.eu/search">
+                        <input type="hidden" name="_token" value="VVv9r3Zkj6JwGBhq4kk4rONtFoT2IqpjgqTCPT9V">
+                        <input type="text" name="q" class="col-md-11 provider-json" placeholder="Search..."/>
+                        <button type="submit" name="search" class="pull-left col-md-1"><span class="homeicon mdi mdi-magnify"></span></button>
+                    </form>
+                </div> -->
+            </div>
+            <div class="col-md-4 col-xs-12 text-center tab-con">
+                <div class="row">
+                    <a href="user.html" class="header-login-button"><span class="headericon mdi mdi-account"></span>SignIn | Registration</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row sep"></div>
+    <div class="hidden-xs" id="header-menu-section">
+        <div class="row">
+            <div class="menu-header">
+
+                <div class="col-md-1 text-center tab-con">
+                    <a href="index.html"><img src="bin/admin/images/logo/main-logo.png" class="menu-logo"/></a>
+                </div>
+                <div class="col-md-10 col-xs-12 tab-con">
+                    <ul id="accordion" class="cat-filters-li accordion accordion-s">
+                        <li class="has-child" onmouseover="this.style.borderColor='#8bc34a'" onmouseleave="this.style.borderColor='transparent'">
+                            <a href="javascript:void(0);">
+                                <img src="bin/admin/files/web.svg"/>
+                                Web Development
+                            </a>
+                            <ul>
+                                <li onmouseover="this.style.borderColor='#8bc34a'" onmouseleave="this.style.borderColor='transparent'">
+                                    <a href="category/Mobile&#32;Apps.html">
+                                        <img src="bin/admin/files/smartphone.svg"/>
+                                        Mobile Apps
+                                    </a>
+                                </li>
+                                <li onmouseover="this.style.borderColor='#8bc34a'" onmouseleave="this.style.borderColor='transparent'">
+                                    <a href="category/Programming&#32;Languages.html">
+                                        <img src="bin/admin/files/coding.svg"/>
+                                        Programming Languages
+                                    </a>
+                                </li>
+                                <li onmouseover="this.style.borderColor='##8bc34a'" onmouseleave="this.style.borderColor='transparent'">
+                                    <a href="category/Game&#32;Development.html">
+                                        <img src="bin/admin/files/game_(1).svg"/>
+                                        Game Development
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="has-child" onmouseover="this.style.borderColor='#e91e63'" onmouseleave="this.style.borderColor='transparent'">
+                            <a href="javascript:void(0);">
+                                <img src="bin/admin/files/financial.svg"/>
+                                Business
+                            </a>
+                            <ul>
+                                <li onmouseover="this.style.borderColor='#e91e63'" onmouseleave="this.style.borderColor='transparent'">
+                                    <a href="category/Finance.html">
+                                        <img src="bin/admin/files/bars.svg"/>
+                                        Finance
+                                    </a>
+                                </li>
+                                <li onmouseover="this.style.borderColor='#9c27b0'" onmouseleave="this.style.borderColor='transparent'">
+                                    <a href="category/Communications.html">
+                                        <img src="bin/admin/files/group.svg"/>
+                                        Communications
+                                    </a>
+                                </li>
+                                <li onmouseover="this.style.borderColor='#940c3a'" onmouseleave="this.style.borderColor='transparent'">
+                                    <a href="category/Strategy.html">
+                                        <img src="bin/admin/files/creative.svg"/>
+                                        Strategy
+                                    </a>
+                                </li>
+                                <li onmouseover="this.style.borderColor='#e91e63'" onmouseleave="this.style.borderColor='transparent'">
+                                    <a href="category/Project&#32;Management.html">
+                                        <img src="bin/admin/files/management_(1).svg"/>
+                                        Project Management
+                                    </a>
+                                </li>
+                                <li onmouseover="this.style.borderColor='#e91e63'" onmouseleave="this.style.borderColor='transparent'">
+                                    <a href="category/Business&#32;Law.html">
+                                        <img src="bin/admin/files/balance.svg"/>
+                                        Business Law
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="sep-green"></div>
+            <div class="menu-header menu-header-child">
+
+                <div class="col-md-10 col-xs-12 col-md-offset-1">
+                    <ul>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="hidden-md hidden-lg hidden-sm mobile-menu">
+        <div class="row h-20"></div>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html#"><b>القسم</b></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                                                                                    <li class="dropdown">
+                                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Web Development<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                                                                    <li><a href="category/Mobile&#32;Apps.html">Mobile Apps</a></li>
+                                                                                    <li><a href="category/Programming&#32;Languages.html">Programming Languages</a></li>
+                                                                                    <li><a href="category/Game&#32;Development.html">Game Development</a></li>
+                                                                            </ul>
+                                </li>
+                                                                                                                <li class="dropdown">
+                                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Business<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                                                                    <li><a href="category/Finance.html">Finance</a></li>
+                                                                                    <li><a href="category/Communications.html">Communications</a></li>
+                                                                                    <li><a href="category/Strategy.html">Strategy</a></li>
+                                                                                    <li><a href="category/Project&#32;Management.html">Project Management</a></li>
+                                                                                    <li><a href="category/Business&#32;Law.html">Business Law</a></li>
+                                                                            </ul>
+                                </li>
+                                                                                                                <li class="dropdown">
+                                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Personal Development<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                                                                    <li><a href="category/Personal&#32;Transformation.html">Personal Transformation</a></li>
+                                                                                    <li><a href="category/Leadership.html">Leadership</a></li>
+                                                                                    <li><a href="category/Relationships.html">Relationships</a></li>
+                                                                            </ul>
+                                </li>
+                                                                                                                <li class="dropdown">
+                                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Design<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                                                                    <li><a href="category/Web&#32;Design.html">Web Design</a></li>
+                                                                                    <li><a href="category/Graphic&#32;Design.html">Graphic Design</a></li>
+                                                                                    <li><a href="category/User&#32;Experience.html">User Experience</a></li>
+                                                                            </ul>
+                                </li>
+                                                                                                                <li class="dropdown">
+                                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Marketing<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                                                                    <li><a href="category/Digital&#32;Marketing.html">Digital Marketing</a></li>
+                                                                                    <li><a href="category/Social&#32;Media.html">Social Media</a></li>
+                                                                            </ul>
+                                </li>
+                                                                                                                <li><a href="category/Lifestyle.html">Lifestyle</a></li>
+                                                                                                                <li><a href="category/Health&#32;&amp;&#32;Fitness.html">Health &amp; Fitness</a></li>
+                                                                                                                <li><a href="category/Teaching&#32;&amp;&#32;Academics.html">Teaching &amp; Academics</a></li>
+                                                                        </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+</div>
+
+
+
+
+<%= yield %>
+
+
+<div class="container-fluid" id="footer">
+    <div class="container">
+        <div class="col-md-3 col-xs-12 tab-con login-container">
+            <h4>About</h4>
+            <p><p style="text-align:left">Ckhaleeji is one of the most popular online courses provider that helps to the different people who are not Arabic in getting to learn Arabic and so that they can communicate with Arabic-speakers in a better and confident way.<br></p></p>
+        </div>
+        <div class="col-md-3 col-xs-12 tab-con">
+            <h4>Links</h4>
+            <p><ul><li style="text-align: justify;">About Us</li><li style="text-align: justify;">Contact Us</li><li style="text-align: justify;">Terms &amp; Rules</li><li style="text-align: justify;">FAQ</li><li style="text-align: justify;">Knowledgebase</li><li style="text-align: justify;">Vendors Panel</li><li style="text-align: justify;">Start Learning</li></ul></p>
+        </div>
+        <div class="col-md-3 col-xs-6 tab-con">
+            <h4>Payment Gateways</h4>
+            <p><p style="text-align: left;"><img src="bin/admin/images/paypal.png" style="width: 128px;"><br></p></p>
+        </div>
+        <div class="col-md-3 col-xs-6 ab-con">
+            <h4>Guaranty</h4>
+            <p><p><img src="bin/admin/images/1212.png" style="width: 128px;"><br></p></p>
+        </div>
+    </div>
+</div>
+<div class="container-fluid footer-blow">
+    <div class="col-md-3 col-xs-12 text-center">
+        <span class="social-text">Follow Us On</span>
+        <ul>
+                                                <li>
+                        <a href="https://youtube.com/" target="_blank" title="whatsapp">
+                            <img src="bin/admin/social&#32;icon/whatsapp&#32;(1).png" alt="whatsapp"/>
+                        </a>
+                    </li>
+                                    <li>
+                        <a href="https://youtube.com/" target="_blank" title="Youtube">
+                            <img src="bin/admin/social&#32;icon/youtube.png" alt="Youtube"/>
+                        </a>
+                    </li>
+                                    <li>
+                        <a href="https://www.facebook.com/" target="_blank" title="Facebook">
+                            <img src="bin/admin/social&#32;icon/facebook.png" alt="Facebook"/>
+                        </a>
+                    </li>
+                                    </ul>
+    </div>
+    <div class="col-md-9 col-xs-12">
+        <span class="copyright">
+            All rights reserved
+        </span>
+        <span class="copyright">
+             
+        </span>
+    </div>
+</div>
+<div class="modal fade" id="uploader-modal" role="dialog">
+    <div class="modal-dialog modal-dialog-s">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">مدير الملفات</h4>
+            </div>
+            <div class="modal-body">
+                
+                <iframe src="https://academy.prodevelopers.eu/laravel-filemanager" style="width: 100%; height: 500px; overflow: hidden; border: none;"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Scripts -->
+
+<script type="application/javascript" src="assets/default/vendor/jquery-ui/js/jquery-1.10.2.js"></script>
+<script type="application/javascript" src="assets/default/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="application/javascript" src="assets/default/vendor/justgage/raphael-2.1.4.min.js"></script>
+<script type="application/javascript" src="assets/default/vendor/justgage/justgage.js"></script>
+<script type="application/javascript" src="assets/default/vendor/simplepagination/jquery.simplePagination.js"></script>
+<script type="application/javascript" src="assets/default/vendor/onloader/js/jquery.oLoader.min.js"></script>
+<script type="application/javascript" src="assets/default/vendor/ios7-switch/ios7-switch.js"></script>
+<script type="application/javascript" src="assets/default/vendor/sticky/jquery.sticky.js"></script>
+<script type="application/javascript" src="assets/default/vendor/chartjs/Chart.min.js"></script>
+<script type="application/javascript" src="assets/default/vendor/bootstrap-notify-master/bootstrap-notify.min.js"></script>
+<script type="application/javascript" src="assets/default/vendor/auto-numeric/autoNumeric.js"></script>
+<script type="application/javascript" src="assets/default/vendor/raty/jquery.raty.js"></script>
+<script type="application/javascript" src="assets/default/vendor/easyautocomplete/jquery.easy-autocomplete.min.js"></script>
+<script type="application/javascript" src="assets/default/vendor/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+<script type="application/javascript" src="assets/default/vendor/owlcarousel/dist/owl.carousel.min.js"></script>
+<script type="application/javascript" src="assets/default/vendor/jquery-te/jquery-te-1.4.0.min.js"></script>
+<script type="application/javascript">var sliderTimer = 9000;</script>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+    var preloader = 0;
+</script>
+<script type="application/javascript" src="assets/default/javascripts/view-custom.js"></script>
+    
+</body>
+</html>
