@@ -6,7 +6,7 @@
                 <span>With Ckhaleeji, you will be able to learn to recognize, read, and pronounce the Arabic
 language perfectly. We will teach you Arabic letters and how they look like in their various forms. Read Arabic literature fluently in its natural form. Speak with us in perfect Arabic accent</span>
                 <div class="parts-slider-button">
-                    <a href="/loginpage_here">Start Learnings</a>
+                    <a href="<%= signin_path %>">Start Learnings</a>
                 </div>
             </div>
             <i class="fa fa-angle-down down-flesh"></i>
@@ -17,14 +17,14 @@ language perfectly. We will teach you Arabic letters and how they look like in t
     <div class="h-25"></div>
     <div class="row">
         <div class="col-xs-12 col-md-4 container-banner-section">
-            <a href="record.html"><img src="bin/admin/files/cmsdef/comingsoon2.jpg" class="col-md-12 col-sm-12 col-xs-12"></a>
-            <a href="request.html"><img src="bin/admin/files/cmsdef/req.jpg" class="col-md-12 col-sm-12 col-xs-12"></a>
+            <a href="#"><img src="bin/admin/files/cmsdef/comingsoon2.jpg" class="col-md-12 col-sm-12 col-xs-12"></a>
+            <a href="#"><img src="bin/admin/files/cmsdef/req.jpg" class="col-md-12 col-sm-12 col-xs-12"></a>
         </div>
         <div class="col-xs-12 col-md-8 parts-container">
             <div class="parts-container-slide" id="slide5">
                 <div class="header">
                     <span>Featured courses</span>
-                    <h2><a href="product/part/5/20.html">Beginner</a></h2>
+                    <h2><a href="<%= course_path %>">Beginner</a></h2>
                 </div>
                 <div class="body-container">
                     <div class="row">
@@ -58,14 +58,14 @@ language perfectly. We will teach you Arabic letters and how they look like in t
                             </div>
                             <div class="item-container">
                                 <div class="col-md-10 price-item profile-item">
-                                    <label><a href="profile/112.html" class="profile-s">Drake Malone</a></label>
+                                    <label><a href="<%= teacher_profile_path(1) %>" class="profile-s">Drake Malone</a></label>
                                 </div>
                                 <div class="col-md-2">
                                     <span class="homeicon mdi mdi-teach"></span>
                                 </div>
                             </div>
                             <div class="item-container">
-                                <a href="product/part/5/20.html" class="btn btn-container-more btn-container-more-s">Course View</a>
+                                <a href="<%= course_path %>" class="btn btn-container-more btn-container-more-s">Course View</a>
                             </div>
                         </div>
                     </div>

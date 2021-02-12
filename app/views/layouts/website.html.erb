@@ -32,8 +32,8 @@
             <div class="col-md-3 col-xs-12 tab-con">
                 <div class="row">
                     <a href="<%= root_path %>">
-                        <img src="bin/admin/images/logo/main-logo.png" alt="CKhaleeji" class="logo-icon"/>
-                        <!-- <img src="bin/admin/images/logo/logotype.png" alt="CKhaleeji" class="logo-type"/> -->
+                        <!-- <img src="bin/admin/images/logo/khaleeji.png" alt="CKhaleeji" class="logo-icon" style="width: 200px;" /> -->
+                        <img src="bin/admin/images/logo/khaleeji.png" alt="CKhaleeji" class="logo-type" style="width: 200px;"/>
                     </a>
                 </div>
             </div>
@@ -48,7 +48,7 @@
             </div>
             <div class="col-md-4 col-xs-12 text-center tab-con">
                 <div class="row">
-                    <a href="user.html" class="header-login-button"><span class="headericon mdi mdi-account"></span>SignIn | Registration</a>
+                    <a href="<%= signin_path %>" class="header-login-button"><span class="headericon mdi mdi-account"></span>SignIn | Registration</a>
                 </div>
             </div>
         </div>
@@ -59,7 +59,7 @@
             <div class="menu-header">
 
                 <div class="col-md-1 text-center tab-con">
-                    <a href="index.html"><img src="bin/admin/images/logo/main-logo.png" class="menu-logo"/></a>
+                    <a href="<%= root_path %>"><img src="bin/admin/images/logo/khaleeji.png" class="menu-logo" style="width: 100px;" /></a>
                 </div>
                 <div class="col-md-10 col-xs-12 tab-con">
                     <ul id="accordion" class="cat-filters-li accordion accordion-s">
