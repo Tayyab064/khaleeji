@@ -1,0 +1,127 @@
+     <hr class="styled_2">
+    <div class="wrapper_indent">
+    <%= form_tag(add_course_path , method: "post" , :multipart => true) do %>
+
+        <div class="strip_menu_items">
+            <div class="row">
+                <div class="col-sm-3">
+                    <%= file_field_tag "image" %>
+                </div>
+                <div class="col-sm-8">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label>Title</label>
+                                <!-- <input type="text" name="menu_item_title" class="form-control"> -->
+                                <%= text_field_tag :title , '' , class: 'form-control', autofocus: true %>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Price</label>
+                                <!-- <input type="text" name="menu_item_title_price" class="form-control"> -->
+                                <%= number_field_tag :price , 0 , class: 'form-control' , :step => 0.1 %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Description</label>
+                            <!-- <input type="text" name="menu_item_title" class="form-control"> -->
+                            <%= text_area_tag :description , '' , cols: 1, rows: 5 , class: 'form-control', autofocus: true %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label>objective</label>
+                            <!-- <input type="text" name="menu_item_title" class="form-control"> -->
+                            <%= text_area_tag :objective , '' , cols: 1, rows: 5 , class: 'form-control', autofocus: true %>
+                            </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label>outline 1</label>
+                               <%= text_field_tag :out_1 , '' , class: 'form-control', autofocus: true %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Outline 1</label>
+                            <!-- <input type="text" name="menu_item_title" class="form-control"> -->
+                            <%= text_area_tag :out_des_1 , '' , cols: 1, rows: 5 , class: 'form-control', autofocus: true %>
+                            </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label>outline 2</label>
+                               <%= text_field_tag :out_2 , '' , class: 'form-control', autofocus: true %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Outline 2</label>
+                            <!-- <input type="text" name="menu_item_title" class="form-control"> -->
+                            <%= text_area_tag :out_des_2 , '' , cols: 1, rows: 5 , class: 'form-control', autofocus: true %>
+                            </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label>outline 3</label>
+                               <%= text_field_tag :out_3 , '' , class: 'form-control', autofocus: true %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Outline 3</label>
+                            <!-- <input type="text" name="menu_item_title" class="form-control"> -->
+                            <%= text_area_tag :out_des_3 , '' , cols: 1, rows: 5 , class: 'form-control', autofocus: true %>
+                            </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label>outline 4</label>
+                               <%= text_field_tag :out_4 , '' , class: 'form-control', autofocus: true %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Outline 4</label>
+                            <!-- <input type="text" name="menu_item_title" class="form-control"> -->
+                            <%= text_area_tag :out_des_4 , '' , cols: 1, rows: 5 , class: 'form-control', autofocus: true %>
+                            </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label>outline 5</label>
+                               <%= text_field_tag :out_5 , '' , class: 'form-control', autofocus: true %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Outline 5</label>
+                            <!-- <input type="text" name="menu_item_title" class="form-control"> -->
+                            <%= text_area_tag :out_des_5 , '' , cols: 1, rows: 5 , class: 'form-control', autofocus: true %>
+                            </div>
+                    </div>
+
+                </div>
+            </div><!-- End row -->
+        </div><!-- End strip_menu_items -->
+    </div><!-- End wrapper_indent -->
+    
+    <hr class="styled_2">
+    
+    <div class="wrapper_indent">
+        <div class="add_more_cat">
+            <!-- <a href="admin.html#0" class="btn_1">Save now</a> -->
+            <%= submit_tag "Save now", class: "btn_1" %>
+
+            <!-- <a href="admin.html#0" class="btn_1">Add menu category</a> --> 
+        </div>
+    </div><!-- End wrapper_indent -->
+    <% end %>

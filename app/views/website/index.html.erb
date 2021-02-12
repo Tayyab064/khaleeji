@@ -2,7 +2,7 @@
     <div class="row">
         <div class="parts-slider" style="background:url('bin/admin/files/img.jpg');">
             <div class="col-xs-12 col-md-4 col-md-offset-4 parts-slider-container">
-                <h2>Online Arabic course</h2>
+                <h2>Online Courses</h2>
                 <span>With Ckhaleeji, you will be able to learn to recognize, read, and pronounce the Arabic
 language perfectly. We will teach you Arabic letters and how they look like in their various forms. Read Arabic literature fluently in its natural form. Speak with us in perfect Arabic accent</span>
                 <div class="parts-slider-button">
@@ -24,7 +24,7 @@ language perfectly. We will teach you Arabic letters and how they look like in t
             <div class="parts-container-slide" id="slide5">
                 <div class="header">
                     <span>Featured courses</span>
-                    <h2><a href="<%= course_path %>">Beginner</a></h2>
+                    <h2><a href="<%= course_path %>"><%= @course.last.title %></a></h2>
                 </div>
                 <div class="body-container">
                     <div class="row">
@@ -34,7 +34,7 @@ language perfectly. We will teach you Arabic letters and how they look like in t
                         <div class="col-md-5 img-con-s">
                             <div class="item-container">
                                 <div class="col-md-10 text-item">
-                                    <span>The first level is the Arabic program sequence. It is designed to introduce basic and fundamental concepts of the formal and spoken Arabic. No prior knowledge of Arabic is required for this course.</span>
+                                    <span><%= simple_format(@course.last.description) %></span>
                                 </div>
                                 <div class="col-md-2">
                                     <span class="homeicon mdi mdi-comment"></span>
@@ -50,7 +50,7 @@ language perfectly. We will teach you Arabic letters and how they look like in t
                             </div>
                             <div class="item-container">
                                 <div class="col-md-10 price-item">
-                                    <label>AED 100</label>
+                                    <label>AED <%= @course.last.price %></label>
                                 </div>
                                 <div class="col-md-2">
                                     <span class="homeicon mdi mdi-wallet"></span>
@@ -90,10 +90,11 @@ language perfectly. We will teach you Arabic letters and how they look like in t
             <div class="body body-s-r" dir="ltr">
                 <span class="nav-right"></span>
                 <div class="owl-carousel">
+                    <% @course.each do |cor| %>
                     <div class="owl-car-s" dir="rtl">
-                        <a href="product/part/100/400.html" title="Begineer" class="content-box">
-                            <img src="bin/admin/Thumbnail/1.png"/>
-                            <h3>Begineer</h3>
+                        <a href="<%= specific_course_path(cor.id) %>" title="<%= cor.title %>" class="content-box">
+                            <img src="<%= cor.image %>"/>
+                            <h3><%= cor.title %></h3>
                             <div class="footer">
                                 <span class="avatar" title="Lili Taylor" onclick="window.location.href = '/profile/117'">
                                     <img src="bin/admin/profile&#32;pic/chin-implant-vs-fillers-best-for-improving-profile-bellevue-washington-chin-surgery.jpg"/>
@@ -101,55 +102,11 @@ language perfectly. We will teach you Arabic letters and how they look like in t
                                 <label class="pull-right content-clock">1 hour 27 min</label>
                                 <span class="boxicon mdi mdi-clock pull-right"></span>
                                 <span class="boxicon mdi mdi-wallet pull-left"></span>
-                                <label class="pull-left">AED 100</label>
+                                <label class="pull-left">AED <%= cor.price %></label>
                             </div>
                         </a>
                     </div>
-                    <div class="owl-car-s" dir="rtl">
-                        <a href="product/part/99/396.html" title="Elementry" class="content-box">
-                            <img src="bin/admin/Thumbnail/4.png"/>
-                            <h3>Elementry</h3>
-                            <div class="footer">
-                                <span class="avatar" title="Jessica Polk" onclick="window.location.href = '/profile/116'">
-                                    <img src="bin/admin/profile&#32;pic/20._Dowie_Sarah.png"/>
-                                </span>
-                                <label class="pull-right content-clock">1 hour 27 min</label>
-                                <span class="boxicon mdi mdi-clock pull-right"></span>
-                                <span class="boxicon mdi mdi-wallet pull-left"></span>
-                                <label class="pull-left">AED 100</label>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="owl-car-s" dir="rtl">
-                        <a href="product/part/98/392.html" title="Pre-Intermediate" class="content-box">
-                            <img src="bin/admin/Thumbnail/2.png"/>
-                            <h3>Pre-Intermediate</h3>
-                            <div class="footer">
-                                <span class="avatar" title="James Smith" onclick="window.location.href = '/profile/115'">
-                                    <img src="bin/admin/profile&#32;pic/5b8d51419125f.png"/>
-                                </span>
-                                <label class="pull-right content-clock">1 hour 27 min</label>
-                                <span class="boxicon mdi mdi-clock pull-right"></span>
-                                <span class="boxicon mdi mdi-wallet pull-left"></span>
-                                <label class="pull-left">AED 100</label>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="owl-car-s" dir="rtl">
-                        <a href="product/part/97/388.html" title="Upper Intermediate" class="content-box">
-                            <img src="bin/admin/Thumbnail/5.png"/>
-                            <h3>Upper Intermediate</h3>
-                            <div class="footer">
-                                <span class="avatar" title="Andrew Wills" onclick="window.location.href = '/profile/114'">
-                                    <img src="bin/admin/profile&#32;pic/5b8d5285391d0.png"/>
-                                </span>
-                                <label class="pull-right content-clock">1 hour 27 min</label>
-                                <span class="boxicon mdi mdi-clock pull-right"></span>
-                                <span class="boxicon mdi mdi-wallet pull-left"></span>
-                                <label class="pull-left">AED 100</label>
-                            </div>
-                        </a>
-                    </div>
+                    <% end %>
                 </div>
                 <span class="nav-left pull-right"></span>
             </div>

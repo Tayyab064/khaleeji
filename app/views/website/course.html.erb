@@ -7,14 +7,15 @@
                     <div class="newest-container newest-container-s">
                     <div class="h-10"></div>
                         <div class="row">
-                            <div class="col-md-4 col-sm-6 col-xs-12">
-                                <a href="<%= specific_course_path(1) %>" title="Beginner"
+                            <% @course.each_with_index do |cor, ind| %>
+                            <div class="col-md-4 col-sm-6 col-xs-12 <%= ind==0 ? '' : 'tab-con' %>">
+                                <a href="<%= specific_course_path(cor.id) %>" title="<%= cor.title %>"
                                    class="content-box pagi-content-box">
 
                                     <div class="img-container">
-                                        <img src="../bin/admin/Thumbnail/1.png" style="width: 100%; height: 230px;" />
+                                        <img src="<%= cor.image %>"" style="width: 100%; height: 230px;" />
                                                                                     </div>
-                                    <h3>Beginner</h3>
+                                    <h3><%= cor.title %></h3>
                                     <div class="footer">
                                         <span class="avatar" title="Lindsey Thaxton"
                                               onclick="window.location.href = '/profile/111'"><img
@@ -26,126 +27,15 @@
 
                                         <span class="boxicon mdi mdi-wallet pull-left"></span>
                                                                                             <label
-                                                class="pull-left">AED 100</label>
+                                                class="pull-left">AED <%= cor.price %></label>
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-md-4 col-sm-6 col-xs-12  tab-con">
-                                <a href="<%= specific_course_path(1) %>" title="Pre-Intermediate"
-                                   class="content-box pagi-content-box">
-
-                                    <div class="img-container">
-                                        <img src="../bin/admin/Thumbnail/2.png" style="width: 100%; height: 230px;"/>
-                                                                                    </div>
-                                    <h3>Pre-Intermediate</h3>
-                                    <div class="footer">
-                                        <span class="avatar" title="Drake Malone"
-                                              onclick="window.location.href = '/profile/112'"><img
-                                                src="../bin/admin/profile&#32;pic/square-small.jpg"></span>
-
-                                        <label
-                                            class="pull-right content-clock">1 hour 27 min</label>
-                                        <span class="boxicon mdi mdi-clock pull-right"></span>
-
-                                        <span class="boxicon mdi mdi-wallet pull-left"></span>
-                                                                                            <label
-                                                class="pull-left">AED 100</label>
-                                     </div>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-6 col-xs-12 tab-con">
-                                <a href="<%= specific_course_path(1) %>" title="Elementry"
-                                   class="content-box pagi-content-box">
-
-                                    <div class="img-container">
-                                        <img src="../bin/admin/Thumbnail/4.png" style="width: 100%; height: 230px;"/>
-                                                                                    </div>
-                                    <h3>Elementry</h3>
-                                    <div class="footer">
-                                        <span class="avatar" title="Richard Stebbins"
-                                              onclick="window.location.href = '/profile/113'"><img
-                                                src="../bin/admin/profile&#32;pic/square-small.jpg"></span>
-
-                                        <label
-                                            class="pull-right content-clock">1 hour 27 min</label>
-                                        <span class="boxicon mdi mdi-clock pull-right"></span>
-
-                                        <span class="boxicon mdi mdi-wallet pull-left"></span>
-                                                                                            <label
-                                                class="pull-left">AED 100</label>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="h-10"></div>
-                            <div class="col-md-4 col-sm-6 col-xs-12  tab-con">
-                                <a href="<%= specific_course_path(1) %>" title="Upper Intermediate"
-                                   class="content-box pagi-content-box">
-
-                                    <div class="img-container">
-                                        <img src="../bin/admin/Thumbnail/5.png" style="width: 100%;  height: 230px;"/>
-                                                                                    </div>
-                                    <h3>Upper Intermediate</h3>
-                                    <div class="footer">
-                                        <span class="avatar" title="Andrew Wills"
-                                              onclick="window.location.href = '/profile/114'"><img
-                                                src="../bin/admin/profile&#32;pic/5b8d5285391d0.png"></span>
-
-                                        <label
-                                            class="pull-right content-clock">1 hour 27 min</label>
-                                        <span class="boxicon mdi mdi-clock pull-right"></span>
-
-                                        <span class="boxicon mdi mdi-wallet pull-left"></span>
-                                                                                            <label
-                                                class="pull-left">AED 100</label>
-                                                                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-6 col-xs-12  tab-con">
-                                <a href="<%= specific_course_path(1) %>" title="Learning SQL Programming"
-                                   class="content-box pagi-content-box">
-
-                                    <div class="img-container">
-                                        <img src="../bin/admin/Thumbnail/6.png" style="width: 100%; height: 230px;"/>
-                                                                                    </div>
-                                    <h3>Advanced</h3>
-                                    <div class="footer">
-                                        <span class="avatar" title="James Smith"
-                                              onclick="window.location.href = '/profile/115'"><img
-                                                src="../bin/admin/profile&#32;pic/5b8d51419125f.png"></span>
-
-                                        <label
-                                            class="pull-right content-clock">1 hour 27 min</label>
-                                        <span class="boxicon mdi mdi-clock pull-right"></span>
-
-                                        <span class="boxicon mdi mdi-wallet pull-left"></span>
-                                                                                            <label
-                                                class="pull-left">AED 100</label>
-                                                                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-sm-6 col-xs-12  tab-con">
-                                <a href="<%= specific_course_path(1) %>" title="Staying Healthy While Traveling"
-                                   class="content-box pagi-content-box">
-
-                                    <div class="img-container">
-                                        <img src="../bin/admin/Thumbnail/1.png" style="width: 100%;  height: 230px;"/>
-                                                                                    </div>
-                                    <h3>Skilled</h3>
-                                    <div class="footer">
-                                        <span class="avatar" title="Jessica Polk"
-                                              onclick="window.location.href = '/profile/116'"><img
-                                                src="../bin/admin/profile&#32;pic/20._Dowie_Sarah.png"></span>
-
-                                        <label
-                                            class="pull-right content-clock">1 hour 27 min</label>
-                                        <span class="boxicon mdi mdi-clock pull-right"></span>
-
-                                        <span class="boxicon mdi mdi-wallet pull-left"></span>
-                                                                                            <label
-                                                class="pull-left">AED 250</label>
-                                    </div>
-                                </a>
-                            </div>
+                            <% inds = ind + 1 %>
+                            <% if inds % 3 == 0 %>
+                                <div class="h-10"></div>
+                            <% end %>
+                            <% end %>
                             
                         </div>
                         <div class="h-10"></div>

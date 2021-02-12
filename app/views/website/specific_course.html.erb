@@ -2,7 +2,7 @@
         <div class="row product-header">
             <div class="container">
                 <div class="col-xs-12 col-md-8 tab-con">
-                    <h2>Arabic Language</h2>
+                    <h2><%= @course.title %></h2>
                 </div>
                 <div class="col-xs-12 col-md-4 text-left">
                     <div class="raty-product-section">
@@ -20,7 +20,7 @@
                 <div class="col-md-4 col-xs-12 course_details">
                     <div class="product-details-box">
                         <span class="proicon mdi mdi-apps"></span>
-                        <span class="pn-category">Intermediate</span>
+                        <span class="pn-category"><%= @course.title %></span>
                     </div>
 
                     <div class="product-details-box">
@@ -44,7 +44,7 @@
                     </div>
                     <div class="product-price-box">
                         <span class="proicon mdi mdi-wallet"></span>
-                                                    <span id="buy-price">AED 100</span>
+                                                    <span id="buy-price">AED <%= @course.price %></span>
                                             </div>
                     <div class="h-10"></div>
                                             <div class="product-buy-selection">
@@ -109,10 +109,10 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td class="text-center">100</td>
+                                            <td class="text-center"><%= @course.price %></td>
                                                 <td class="text-center">0</td>
                                                 <td class="text-center">0</td>
-                                            <td class="text-center">100</td>
+                                            <td class="text-center"><%= @course.price %></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -387,8 +387,32 @@
                             </div>
                             <div class="tab-pane fade" id="tab2">
                                 <!-- <div class="tab-con"></div> -->
+                                <p dir="ltr" style="line-height: 28px; color: rgb(0, 0, 0);">
+                                    <span style="font-weight: bolder;"><%= @course.title %></span>
+                                </p>
+                                <p dir="ltr" style="margin-bottom: 1rem; line-height: 28px; color: rgb(0, 0, 0);">
+                                    <%= simple_format(@course.description) %>
+                                </p>
+                                <p dir="ltr" style="line-height: 28px; color: rgb(0, 0, 0);">
+                                    <span style="font-weight: bolder;">Objective</span>
+                                </p>
+                                <p dir="ltr" style="margin-bottom: 1rem; line-height: 28px; color: rgb(0, 0, 0);">
+                                    <%= simple_format(@course.objective) %>
+                                </p>
+
+                                <p dir="ltr">
+                                    <span style="font-weight: bolder;">Outline</span>
+                                </p>
+                                <% @course.outlines.each do |out| %>
+                                    <p dir="ltr" style="line-height: 28px; color: rgb(0, 0, 0);">
+                                        <span style="font-weight: bolder;"><%= out.title %></span>
+                                    </p>
+                                    <p dir="ltr" style="margin-bottom: 1rem; line-height: 28px; color: rgb(0, 0, 0);">
+                                        <%= simple_format(out.description) %>
+                                    </p>
+                                <% end %>
+
                                 <span style="font-weight: bolder;">source : ckhaleeji.com</span>
-                                <p dir="ltr">Dozens of students asked what equipment I use when creating my characters, which is a great question, so I thought it was about time I answered. In this video I talk about my setup, but that doesn't mean you will need the same system or devices. The easiest and cheapest way to start is pencil and paper. This is the bare requirement. If you are wanting to explore the digital world of art creation, I recommend either an iPad with a stylus (because many people already own an iPad) or picking up an Intuos tablet to plug into your computer. This course was 90% created using Sketchbook Pro (ie. The screen you see in bulk of the lessons is Sketchbook Pro), which uses layers and has the ability to change brushes, etc. This is what I would recommend using when starting out. If you have any questions, feel free to ask.</p>
                             </div>
                             <div class="tab-pane fade in tab-body" id="tab3">
                                                                                                         <div class="col-md-4 col-xs-12 tab-con">
@@ -462,7 +486,7 @@
         $(function () {
             fluidPlayer("myDiv", {
                 layoutControls: {
-                    posterImage: '/bin/admin/images/logo/logo.png',
+                   
                     logo: {
                         imageUrl: '/bin/admin/images/logo/logo.png', // Default null
                         position: 'top right', // Default 'top left'
