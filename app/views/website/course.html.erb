@@ -1,48 +1,35 @@
-    <div class="h-30"></div>
+
+    <div class="h-20"></div>
     <div class="container-fluid">
         <div class="row">
             <div class="container">
-                
+                <div class="h-20"></div>
                 <div class="col-md-12 col-xs-12">
-                    <div class="newest-container newest-container-s">
-                    <div class="h-10"></div>
-                        <div class="row">
+                    <div class="newest-container">
+                        <div class="row body body-target body-target-s">
                             <% @course.each_with_index do |cor, ind| %>
-                            <div class="col-md-4 col-sm-6 col-xs-12 <%= ind==0 ? '' : 'tab-con' %>">
-                                <a href="<%= specific_course_path(cor.id) %>" title="<%= cor.title %>"
-                                   class="content-box pagi-content-box">
+                            <div class="col-md-3 col-sm-6 col-xs-12 tab-con">
+                                <a href="<%= specific_course_path(cor.id) %>" title="<%= cor.title %>" class="content-box pagi-content-box">
 
                                     <div class="img-container">
-                                        <img src="<%= cor.image %>"" style="width: 100%; height: 230px;" />
-                                                                                    </div>
+                                        <img src="<%= cor.image %>"/>
+                                    </div>
                                     <h3><%= cor.title %></h3>
                                     <div class="footer">
-                                        <span class="avatar" title="Lindsey Thaxton"
-                                              onclick="window.location.href = '/profile/111'"><img
-                                                src="../bin/admin/profile&#32;pic/KAQkpfhs.jpeg"></span>
+                                        <span class="avatar" title="Alex Cook" onclick="window.location.href = '/profile/108'"><img src="bin/admin/profile&#32;pic/22654-6-man.png"></span>
 
-                                        <label
-                                            class="pull-right content-clock">1 hour 27 min</label>
-                                        <span class="boxicon mdi mdi-clock pull-right"></span>
+                                            <label class="pull-right content-clock">1 hour 27 min</label>
+                                            <span class="boxicon mdi mdi-clock pull-right"></span>
 
                                         <span class="boxicon mdi mdi-wallet pull-left"></span>
-                                                                                            <label
-                                                class="pull-left">AED <%= cor.price %></label>
+                                        <label class="pull-left"> AED <%= cor.price %> </label>
                                     </div>
                                 </a>
                             </div>
-                            <% inds = ind + 1 %>
-                            <% if inds % 3 == 0 %>
-                                <div class="h-10"></div>
                             <% end %>
-                            <% end %>
-                            
                         </div>
-                        <div class="h-10"></div>
-                        <div class="pagi text-center center-block col-xs-12"></div>
-                        <div class="row pagi-s"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div>                      
