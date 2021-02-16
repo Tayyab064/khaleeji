@@ -66,24 +66,35 @@ class WebsiteController < ApplicationController
 
 	def save_course
 		p params
-		c = Course.create(image: params[:image] , title: params[:title] , price: params[:price] , description: params[:description] , objective: params[:objective]) 
+		if params[:image].present?
+			c = Course.create(image: params[:image] , title: params[:title] , price: params[:price] , description: params[:description] , objective: params[:objective]) 
 
-		p 'Go Baby Go'
-		if params[:out_1].length > 0
-			Outline.create(title: params[:out_1], description: params[:out_des_1] , course_id: c.id)
+			p 'Go Baby Go'
+			if params[:out_1].length > 0
+				Outline.create(title: params[:out_1], description: params[:out_des_1] , course_id: c.id)
+			end
+			if params[:out_2].length > 0
+				Outline.create(title: params[:out_2], description: params[:out_des_2] , course_id: c.id)
+			end
+			if params[:out_3].length > 0
+				Outline.create(title: params[:out_3], description: params[:out_des_3] , course_id: c.id)
+			end
+			if params[:out_4].length > 0
+				Outline.create(title: params[:out_4], description: params[:out_des_4] , course_id: c.id)
+			end
+			if params[:out_5].length > 0
+				Outline.create(title: params[:out_5], description: params[:out_des_5] , course_id: c.id)
+			end
+			if params[:out_6].length > 0
+				Outline.create(title: params[:out_6], description: params[:out_des_6] , course_id: c.id)
+			end
+			if params[:out_7].length > 0
+				Outline.create(title: params[:out_7], description: params[:out_des_7] , course_id: c.id)
+			end
+			notic = 'Successfully added'
+		else
+			notic = 'Error: Image Missing'
 		end
-		if params[:out_2].length > 0
-			Outline.create(title: params[:out_2], description: params[:out_des_2] , course_id: c.id)
-		end
-		if params[:out_3].length > 0
-			Outline.create(title: params[:out_3], description: params[:out_des_3] , course_id: c.id)
-		end
-		if params[:out_4].length > 0
-			Outline.create(title: params[:out_4], description: params[:out_des_4] , course_id: c.id)
-		end
-		if params[:out_5].length > 0
-			Outline.create(title: params[:out_5], description: params[:out_des_5] , course_id: c.id)
-		end
-		redirect_to :back
+		redirect_to :back , notice: notic
 	end
 end
