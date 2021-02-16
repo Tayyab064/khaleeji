@@ -6,12 +6,13 @@
                 <div class="box boxShaddow"></div>
                 <div class="box loginBox">
                     <h2>SignIn</h2>
-                    <form class="form" action="#" method="post" id="loginForm" style="text-align: left;direction: ltr">
+                    <form class="form" action="<%= signin_save_path %>" method="post" id="loginForm" style="text-align: left;direction: ltr">
                         <div class="f_row">
                             <label>Email</label>
                             <input type="text" name="username" class="input-field validate" autocomplete="new-password" valid-title="Fill out this form" required>
                             <u></u>
                         </div>
+                        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                         <div class="f_row last">
                             <label>Password</label>
                             <input type="password" name="password" class="input-field validate" valid-title="Fill out this form" autocomplete="new-password" required>
@@ -46,12 +47,13 @@
                 </div>
                 <div class="box registerBox" style="height: 650px">
                     <span class="reg_bg"></span>
-                    <form class="form" method="post" action="#" style="text-align: left">
+                    <form class="form" method="post" action="<%= signup_path %>" style="text-align: left">
                         <div class="f_row">
                             <label>Username</label>
                             <input type="text" name="username" valid-title="Fill out this form." class="input-field validate" required>
                             <u></u>
                         </div>
+                        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                         <div class="f_row">
                             <label>Password</label>
                             <input type="password" id="r-password" valid-title="Fill out this form." name="password" class="input-field validate" required>

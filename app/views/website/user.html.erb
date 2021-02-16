@@ -1,0 +1,365 @@
+    <div class="container-fluid profile-top-background" style="background: url('../bin/admin/files/ctest4.jpg');">
+        <div class="col-md-3 col-xs-12">
+
+        </div>
+        <div class="col-md-9 col-xs-12 bottom-section">
+            <span>
+                <label class="profile-name"><% @end_user.name %></label>
+                
+        </div>
+    </div>
+
+    <div class="container-fluid profile-middle-background">
+        <div class="container">
+            <div class="col-md-2 col-xs-12 profile-avatar-container tab-con">
+                <img class="sbox3" src="../bin/admin/profile&#32;pic/square-small.jpg"/>
+                <div class="rate-section raty"></div>
+            </div>
+            <div class="location-section col-md-10 col-xs-12">
+                <div class="profile_name_item"><b><%= @end_user.name %></div>
+                <div class="profile_register_date_item"><b>Registration Date: <%= @end_user.created_at.strftime("%d %b %Y") %></b></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="h-10"></div>
+
+    <div class="container-fluid bg-gray-s">
+        <div class="row ucp-menu-item">
+            <div class="container">
+                <div class="seven-cols">
+                    <div class="col-md-1 col-sm-6 col-xs-6 tab-con">
+                        <a href="javascript:void(0)" tab-id="t-biography" class="item-box sbox3 arrow_box">
+                            <span class="micon mdi mdi-account-tie"></span>
+                            <span>Profile</span>
+                        </a>
+                    </div>
+                    <div class="col-md-1 col-sm-6 col-xs-6 tab-con">
+                        <a href="javascript:void(0)" tab-id="t-videos" class="item-box sbox3">
+                            <span class="micon mdi mdi-library-video"></span>
+                            <span>Courses</span>
+                        </a>
+                    </div>
+                    <!-- <div class="h-10 visible-xs"></div>
+                    <div class="col-md-1 col-sm-6 col-xs-6 tab-con">
+                        <a href="javascript:void(0)" tab-id="t-channels" class="item-box sbox3">
+                            <span class="micon mdi mdi-bullhorn"></span>
+                            <span>Channels</span>
+                        </a>
+                    </div> -->
+                    <!-- <div class="col-md-1 col-sm-6 col-xs-6 tab-con">
+                        <a href="javascript:void(0)" tab-id="t-medals" class="item-box sbox3">
+                            <span class="micon mdi mdi-medal"></span>
+                            <span>Decorations</span>
+                        </a>
+                    </div> -->
+                    <div class="h-10 visible-xs"></div>
+                    <div class="col-md-1 col-sm-6 col-xs-6 tab-con">
+                        <a href="javascript:void(0)" tab-id="t-record" class="item-box sbox3">
+                            <span class="micon mdi mdi-video"></span>
+                            <span>Future Cycles</span>
+                        </a>
+                    </div>
+                    <div class="col-md-1 col-sm-6 col-xs-6 tab-con">
+                        <a href="javascript:void(0)" tab-id="t-article" class="item-box sbox3">
+                            <span class="micon mdi mdi-notebook"></span>
+                            <span>Articles</span>
+                        </a>
+                    </div>
+                    <div class="h-10 visible-xs"></div>
+                    <div class="col-md-1 col-sm-6 col-xs-12 tab-con">
+                        <a href="javascript:void(0)" tab-id="t-request" class="item-box sbox3">
+                            <span class="micon mdi mdi-camera-enhance"></span>
+                            <span>Course Request</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-gray-s">
+
+        <div class="container">
+
+            <div class="col-xs-12 remove-padding-xs">
+
+                <div id="t-biography" class="profile-section-fade profile-section sbox3 doview">
+                    <div class="row hidden">
+                        <div class="col-md-3 col-xs-12 col-sm-6 text-center">
+                            <h4>Course Notes</h4>
+                            <div class="h-5"></div>
+                            <span class="dis-block">(4)</span>
+                            <div class="h-10"></div>
+                            <div class="progress" dir="ltr">
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="3.4"
+                                     aria-valuemin="1" aria-valuemax="5" style="width:80%">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-xs-12 col-sm-6 text-center">
+                            <h4>Support Notes</h4>
+                            <div class="h-5"></div>
+                            <span class="dis-block">(0)</span>
+                            <div class="h-10"></div>
+                            <div class="progress" dir="ltr">
+                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0"
+                                     aria-valuemin="1" aria-valuemax="5" style="width:0%">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-xs-12 col-sm-6 text-center">
+                            <h4>Physical Sales Feedback</h4>
+                            <div class="h-5"></div>
+                            <span class="dis-block">(0)</span>
+                            <div class="h-10"></div>
+                            <div class="progress" dir="ltr">
+                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="0"
+                                     aria-valuemin="1" aria-valuemax="5" style="width:0%">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-xs-12 col-sm-6 text-center">
+                            <h4>Article Notes </h4>
+                            <div class="h-5"></div>
+                            <span class="dis-block">(0)</span>
+                            <div class="h-10"></div>
+                            <div class="progress" dir="ltr">
+                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="0"
+                                     aria-valuemin="1" aria-valuemax="5" style="width:0%">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h-20"></div>
+                                            Hey, I&#039;m <%= @end_user.name %>. I am a Graphic Artist from Dubai, UAE. Over the past twenty years or so I&#039;ve been passionately sketching, drawing, painting and digitally crafting my own brand of cartooning and kawaii styled characters. I love teaching kids and adults to draw. I believe that drawing is a skill for life which brings so much joy to family and friends. I also specialise in business branding and design. This line of work allows me free time to share my cartooning secrets with people like you. You won&#039;t believe the creative freedom that being able to draw offers. Sign up and find out for yourself why so many people are taking and recommending this course. I genuinely believe it&#039;s the best cute cartoon drawing course on the market and if you don&#039;t agree, I&#039;ll happily refund your money. Sign up to How to Draw Cute Cartoon Characters and join me in this amazing adventure, today.
+                                    </div>
+
+                <div id="t-videos" class="profile-section-fade newest-container newest-container-p">
+                    <div class="body body-target-s">
+                        <div class="row">
+                                <div class="col-md-3 col-sm-6 col-xs-12 tab-con">
+                                    <a href="../product/part/5/20.html" title="Social Marketing" class="content-box">
+                                        <img src="../bin/admin/Thumbnail/social&#32;marketing.png"/>
+                                        <h3>Beginner</h3>
+                                        <div class="footer">
+                                            <label class="pull-right">1 hour 27 min</label>
+                                            <span class="boxicon mdi mdi-clock pull-right"></span>
+                                            <span class="boxicon mdi mdi-wallet pull-left"></span>
+                                            <label class="pull-left">AED 100</label>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-12 tab-con">
+                                    <a href="../product/part/15/60.html" title="Social Marketing" class="content-box">
+                                        <img src="../bin/admin/Thumbnail/social&#32;marketing.png"/>
+                                        <h3>Intermediate</h3>
+                                        <div class="footer">
+                                            <label class="pull-right">1 hour 27 min</label>
+                                            <span class="boxicon mdi mdi-clock pull-right"></span>
+                                            <span class="boxicon mdi mdi-wallet pull-left"></span>
+                                            <label class="pull-left">AED 100</label>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-12 tab-con">
+                                    <a href="../product/part/25/100.html" title="Social Marketing" class="content-box">
+                                        <img src="../bin/admin/Thumbnail/social&#32;marketing.png"/>
+                                        <h3>Upper-Intermediate</h3>
+                                        <div class="footer">
+                                            <label class="pull-right">1 hour 27 min</label>
+                                            <span class="boxicon mdi mdi-clock pull-right"></span>
+                                            <span class="boxicon mdi mdi-wallet pull-left"></span>
+                                            <label class="pull-left">AED 100</label>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-12 tab-con">
+                                    <a href="../product/part/35/140.html" title="Social Marketing" class="content-box">
+                                        <img src="../bin/admin/Thumbnail/social&#32;marketing.png"/>
+                                        <h3>Advanced</h3>
+                                        <div class="footer">
+                                            <label class="pull-right">1 hour 27 min</label>
+                                            <span class="boxicon mdi mdi-clock pull-right"></span>
+                                            <span class="boxicon mdi mdi-wallet pull-left"></span>
+                                            <label class="pull-left">AED 100</label>
+                                        </div>
+                                    </a>
+                                </div>
+                                
+                            </div>
+                    </div>
+                </div>
+
+                <div id="t-channels" class="profile-section-fade newest-container newest-container-p">
+                    <div class="body body-target-s">
+                        <div class="row">
+                                                            <div class="col-md-3 col-sm-6 col-xs-12 tab-con">
+                                    <a href="../chanel/Marketing.html" title="Marketing" class="content-box">
+                                        <img src="../bin/admin/images/digital-marketing.png"/>
+                                        <h3>Marketing</h3>
+                                    </a>
+                                </div>
+                                                                                </div>
+                    </div>
+                </div>
+
+                <div id="t-medals" class="profile-section-fade newest-container newest-container-e">
+                    <div class="row">
+                                                    <div class="col-md-3 col-xs-12 tab-con">
+                                <div class="product-card">
+                                    <h2>Old friend of the site</h2>
+                                    <h4>
+                                                                                من
+                                        365
+                                        To
+                                        729
+                                                                                    Reg. Days
+                                                                            </h4>
+                                    <figure>
+                                        <img src="../bin/admin/files/cmsdef/medals/reg/4.svg" alt="Old friend of the site"/>
+                                    </figure>
+                                </div>
+                            </div>
+                                                    <div class="col-md-3 col-xs-12 tab-con">
+                                <div class="product-card">
+                                    <h2>Loyal Vendor</h2>
+                                    <h4>
+                                                                                من
+                                        10
+                                        To
+                                        19
+                                                                                    Courses
+                                                                            </h4>
+                                    <figure>
+                                        <img src="../bin/admin/files/cmsdef/medals/coursecount/3.svg" alt="Loyal Vendor"/>
+                                    </figure>
+                                </div>
+                            </div>
+                                                    <div class="col-md-3 col-xs-12 tab-con">
+                                <div class="product-card">
+                                    <h2>Talent seller</h2>
+                                    <h4>
+                                                                                من
+                                        5
+                                        To
+                                        9
+                                                                                    Sales
+                                                                            </h4>
+                                    <figure>
+                                        <img src="../bin/admin/files/cmsdef/medals/sales/1.svg" alt="Talent seller"/>
+                                    </figure>
+                                </div>
+                            </div>
+                                                    <div class="col-md-3 col-xs-12 tab-con">
+                                <div class="product-card">
+                                    <h2>Tester</h2>
+                                    <h4>
+                                                                                من
+                                        1
+                                        To
+                                        4
+                                                                                    Purchases
+                                                                            </h4>
+                                    <figure>
+                                        <img src="../bin/admin/files/cmsdef/medals/purchase/1.svg" alt="Tester"/>
+                                    </figure>
+                                </div>
+                            </div>
+                                                                    </div>
+                </div>
+
+                <div id="t-article" class="profile-section-fade newest-container newest-container-p">
+                    <div class="body body-target-s body-target-s">
+                        <div class="blog-section body-target-s">
+                                <div class="text-center">
+                                    <img src="../assets/default/images/empty/articles.png">
+                                    <div class="h-20"></div>
+                                    <span class="empty-first-line">No data found</span>
+                                    <div class="h-20"></div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="t-request" class="profile-section-fade newest-container newest-container-e">
+                    <div class="body body-target-s">
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12 tab-con">
+                                <div class="ucp-section-box white-s">
+                                    <div class="header back-orange">Course Request</div>
+                                    <div class="body body-target-s">
+                                        <form method="post" action="https://academy.prodevelopers.eu/profile/request/store">
+                                            <div class="form-group">
+                                                <label class="control-label" for="inputDefault">Title</label>
+                                                <input type="text" name="title" class="form-control" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label" for="inputDefault">Category</label>
+                                                <select name="category_id" class="form-control font-s" required>
+                                                    <optgroup label="Language Course">
+                                                        <option value="beginner">Beginner</option>
+                                                        <option value="elementry">Elementry</option>
+                                                        <option value="pre-intermediate">Pre-Intermediate</option>
+                                                        <option value="upper-intermediate">Upper-Intermediate</option>
+                                                        <option value="advanced">Advanced</option>
+                                                        <option value="skilled">Skilled</option>
+                                                    </optgroup>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label" for="inputDefault">Description</label>
+                                                <textarea name="description" rows="5" class="form-control" required></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-custom" value="save">Save</button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12 tab-con">
+                                <div class="ucp-section-box white-s">
+                                    <div class="header back-orange">Course Request Rules</div>
+                                    <div class="body body-target-s">
+                                        <p>Before send your request, read term and rules.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.<br></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="t-record" class="profile-section-fade newest-container newest-container-p">
+                    <div class="body bodt-target-s">
+                        <div class="row">
+                                                                                        <div class="text-center">
+                                    <img src="../assets/default/images/empty/recording.png">
+                                    <div class="h-20"></div>
+                                    <span class="empty-first-line">No data found</span>
+                                    <div class="h-20"></div>
+                                </div>
+                                                    </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <script type="application/javascript" src="../assets/default/javascripts/view-custom.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.ucp-menu-item a').click(function () {
+                var id = $(this).attr('tab-id');
+                $('.ucp-menu-item a').removeClass('arrow_box');
+                $(this).addClass('arrow_box');
+                $('.profile-section-fade').not('#' + id).fadeOut(500, function () {
+                    $('#' + id).fadeIn(500);
+                });
+            })
+        })
+    </script>

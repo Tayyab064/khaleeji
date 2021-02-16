@@ -1,7 +1,40 @@
 class WebsiteController < ApplicationController
-
+	before_action :is_enduser_check
+	before_action :is_enduser , only: [:user]
 	def signin
 
+	end
+
+	def signin_save
+		if session[:user].present?
+			redirect_to :back , notice: "Error: Already SignedIn"
+		else
+			if usr = User.where(role: 0).find_by(email: params[:username]).try(:authenticate, params[:password])
+				if usr.block == false
+					session[:user] = params[:username]
+					redirect_to '/' , notice: "Successfully SignedIn"
+				else
+					redirect_to :back , notice: "Error: User is blocked"
+				end
+			else
+				redirect_to :back , notice: "Error: Email/Password doesn't match"
+			end
+		end
+	end
+
+	def signup
+		if User.find_by_email(params[:email])
+			redirect_to :back , notice: 'Error: Already SignedUp!'
+		else
+			if params[:password] == params[:password_confirmation]
+				c = User.create(name: params[:username]  , email: params[:email] , password: params[:password] , role: 0)
+				#UserMailer.usersignup(c).deliver_now
+				session[:user] = params[:email]
+				redirect_to '/' , notice: 'Successfully SignedUp!'
+			else
+				redirect_to :back , notice: 'Error: Password doesnot match'
+			end
+		end
 	end
 
 	def index
@@ -22,6 +55,13 @@ class WebsiteController < ApplicationController
 
 	def add_course
 
+	end
+
+	def user
+		user = User.find(params[:id])
+		unless user == @end_user
+			redirect_to :back , notice: "Error: Dont have access to others profile"
+		end
 	end
 
 	def save_course

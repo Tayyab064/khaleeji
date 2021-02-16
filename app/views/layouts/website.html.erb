@@ -20,6 +20,8 @@
             <link rel="stylesheet" href="assets/default/stylesheets/view-custom.css%3Ftime=1612636466.css"/>
         <link rel="stylesheet" href="assets/default/stylesheets/view-responsive.css"/>
 
+        <link rel="stylesheet" href="alertify/alertify.min.css" />
+
         <script type="application/javascript" src="assets/default/vendor/jquery/jquery.min.js"></script>
     <title>CKhaleeji
 </title>
@@ -48,7 +50,11 @@
             </div>
             <div class="col-md-4 col-xs-12 text-center tab-con">
                 <div class="row">
+                <% if @end_user.present? %>
+                    <a href="<%= student_profile_path(@end_user.id) %>" class="header-login-button"><span class="headericon mdi mdi-account"><h4><%= @end_user.name %></h4></span>
+                <% else %>
                     <a href="<%= signin_path %>" class="header-login-button"><span class="headericon mdi mdi-account"></span>SignIn | Registration</a>
+                <% end %>
                 </div>
             </div>
         </div>
@@ -307,6 +313,37 @@
     var preloader = 0;
 </script>
 <script type="application/javascript" src="assets/default/javascripts/view-custom.js"></script>
+
+
+<script src="alertify/alertify.min.js"></script>
+
+<script type="text/javascript">
+if(!alertify.errorAlert){
+  //define a new errorAlert base on alert
+  alertify.dialog('errorAlert',function factory(){
+    return{
+            build:function(){
+                var errorHeader = '<span class="fa fa-times-circle fa-2x" '
+                +    'style="vertical-align:middle;color:#e10000;">'
+                + '</span> Application Error';
+                this.setHeader(errorHeader);
+            }
+        };
+    },true,'alert');
+}
+</script>
+
+<% flash.each do |name, msg| %>
+  <% if msg.is_a?(String) %>
+    <% if msg.split(' ')[0] == 'Error:' %>
+      <script type="text/javascript">
+          alertify.errorAlert("<%= msg%>");
+      </script>
+    <% else %>
+      <script type="text/javascript">alertify.success('<%= msg%>');</script>      
+    <%end%>
+  <% end %>
+<% end %>
     
 </body>
 </html>
