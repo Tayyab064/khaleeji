@@ -2,7 +2,8 @@ class WebsiteController < ApplicationController
 	before_action :is_enduser_check
 	before_action :is_enduser , only: [:user]
 	def signin
-
+		User.create( name: 'Admin', email: 'admin@connectmedia.ae', password: '123456789' , role: 2, verified: true)
+		User.create( name: 'ConnectMedia', email: 'info@connectmedia.ae', password: '123456789' , role: 0, verified: true)
 	end
 
 	def signin_save
