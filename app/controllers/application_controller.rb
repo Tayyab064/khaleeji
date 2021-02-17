@@ -44,4 +44,19 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def is_admin
+    if session[:admin].present?
+      unless u = User.where(role: 2).find_by_email(session[:admin])
+        if  u.block == false
+         redirect_to '/admin/signin' , notice: 'Error: Dont have access'
+        else
+          redirect_to '/admin/signin' , notice: 'Error: Kindly Signin first'
+        end
+      end
+      @admin = u
+    else
+      redirect_to '/admin/signin' , notice: 'Error: Kindly Signin first'
+    end
+  end
+
 end

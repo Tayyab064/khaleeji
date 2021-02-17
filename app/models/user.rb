@@ -8,4 +8,6 @@ class User < ApplicationRecord
 	enum gender: [:male , :female]
 	enum role: [:end_user , :owner , :admin]
 
+	has_many :purchases , dependent: :destroy
+
 end

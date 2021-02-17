@@ -91,10 +91,13 @@ class WebsiteController < ApplicationController
 			if params[:out_7].length > 0
 				Outline.create(title: params[:out_7], description: params[:out_des_7] , course_id: c.id)
 			end
+			if params[:out_8].length > 0
+				Outline.create(title: params[:out_8], description: params[:out_des_8] , course_id: c.id)
+			end
 			notic = 'Successfully added'
 		else
 			notic = 'Error: Image Missing'
 		end
-		redirect_to :back , notice: notic
+		redirect_to admin_add_course_path , notice: notic
 	end
 end

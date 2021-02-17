@@ -10,6 +10,18 @@ Rails.application.routes.draw do
   get 'student_:id' => 'website#user' , as: 'student_profile'
 
 
-  get 'save_course' => 'website#add_course'
+  #get 'save_course' => 'website#add_course'
   post 'course' => 'website#save_course' , as: 'add_course'
+
+
+  scope 'admin' do
+    get 'signin' => 'admin#signin'
+    post 'signin' => 'admin#approve_signin' , as: 'signin_admin'
+    get 'signout' => 'admin#signout' , as: 'admin_signout'
+    get 'index' => 'admin#index' , as: 'admin_index'
+    get 'course' => 'admin#course' , as: 'admin_all_courses'
+    get 'student' => 'admin#students' , as: 'admin_students'
+    get 'instructor' => 'admin#instructor' , as: 'admin_instructor'
+    get 'add_course' => 'admin#add_course' , as: 'admin_add_course'
+  end
 end
