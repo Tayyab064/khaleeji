@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   #get 'save_course' => 'website#add_course'
   post 'course' => 'website#save_course' , as: 'add_course'
+  post 'buy_course' => 'website#buy_course' , as: 'web_buy_course'
 
 
   scope 'admin' do

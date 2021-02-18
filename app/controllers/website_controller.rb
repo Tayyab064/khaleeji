@@ -1,6 +1,6 @@
 class WebsiteController < ApplicationController
 	before_action :is_enduser_check
-	before_action :is_enduser , only: [:user]
+	before_action :is_enduser , only: [:user , :buy_course]
 	
 	def signin
 		
@@ -109,5 +109,9 @@ class WebsiteController < ApplicationController
 			notic = 'Error: Image Missing'
 		end
 		redirect_to admin_add_course_path , notice: notic
+	end
+
+	def buy_course
+		p params
 	end
 end

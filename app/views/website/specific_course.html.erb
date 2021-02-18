@@ -47,7 +47,7 @@
                                                     <span id="buy-price">AED <%= @course.price %></span>
                                             </div>
                     <div class="h-10"></div>
-                                            <div class="product-buy-selection">
+                        <div class="product-buy-selection">
                             <form>
                                 <input type="hidden" name="_token" value="VVv9r3Zkj6JwGBhq4kk4rONtFoT2IqpjgqTCPT9V">
                                 <div class="radio">
@@ -59,11 +59,11 @@
                                     <label class="radio-label" for="radio-1">Purchase Physical Package</label>
                                 </div>
                                                                             
-                                <a class="btn btn-orange product-btn-buy sbox3" id="buy-btn" data-toggle="modal" data-target="#buyModal" href="112.html">Proceed</a>
+                                <a class="btn btn-orange product-btn-buy sbox3" id="buy-btn" data-toggle="modal" data-target="#buyModal" href="#">Proceed</a>
                             </form>
                         </div>
-                                        <div class="h-10 visible-xs"></div>
-                                    </div>
+                        <div class="h-10 visible-xs"></div>
+                    </div>
                 <div id="buyModal" class="modal fade" role="dialog">
                     <div class="modal-dialog">
                         <!-- Modal content-->
@@ -72,27 +72,28 @@
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 <h4 class="modal-title">Purchase</h4>
                             </div>
+
+                            <%= form_tag(web_buy_course_path , method: "post" , :multipart => true) do %>
                             <div class="modal-body">
                                 <p>Choose a payment method</p>
                                 <p>
                                     <input type="hidden" id="buy_method" value="download">
+                                    <input type="hidden" id="course_id" value="<%= @course.id %>">
                                 <div class="radio">
-                                    <input type="radio" class="buy-mode" id="mode-1" value="credit" name="buyMode">
-                                    &nbsp;
+                                    <%= radio_button_tag :meth , 'withdrawn' , true %>
                                     <label class="radio-label" for="mode-1">Withdrawn<b id="credit-remain-modal">(AED)</b></label>
                                 </div>
                                     <div class="radio">
-                                        <input type="radio" class="buy-mode" id="mode-4" value="paytm" name="buyMode">
-                                        &nbsp;
+                                        <%= radio_button_tag :meth , 'paytm'  %>
                                         <label class="radio-label" for="mode-4"> Paytm </label>
                                     </div>
                                     <div class="radio">
-                                        <input type="radio" class="buy-mode" id="mode-5" value="payu" name="buyMode">
+                                        <%= radio_button_tag :meth , 'payu'  %>
                                         &nbsp;
                                         <label class="radio-label" for="mode-5"> Payu </label>
                                     </div>
                                     <div class="radio">
-                                        <input type="radio" class="buy-mode" id="mode-6" value="razorpay" name="buyMode">
+                                        <%= radio_button_tag :meth , 'razorpay'  %>
                                         &nbsp;
                                         <label class="radio-label" for="mode-6"> Razorpay </label>
                                     </div>
@@ -144,22 +145,24 @@
                                 </div>
                                                         <div class="modal-footer">
                                 <button type="button" class="btn btn-custom pull-left" data-dismiss="modal">Cancel</button>
-                                <a href="javascript:void(0);" class="btn btn-custom pull-left" id="buyBtn">Purchase</a>
+                                
+                                <%= submit_tag("Purchase", :id=>"buyBtn", :class=>"btn btn-custom pull-left", :name=>"buy") %>
                                 
                             </div>
+                            <% end %>
                         </div>
 
                     </div>
                 </div>
                 <div class="col-md-8 col-xs-12 video-details">
-                                        <video id="myDiv" controls>
+                    <video id="myDiv" controls>
                         <source src="../../../bin/admin/Thumbnail/demo.mp4" type="video/mp4"/>
                     </video>
-                                        <div class="video-details-section">
-                                                    <a title="Add to favorites" href="../../fav/28.html">
-                                <span class="playericon mdi mdi-star"></span>
-                            </a>
-                                                <a href="112.html" title="Share">
+                    <div class="video-details-section">
+                        <a title="Add to favorites" href="../../fav/28.html">
+                            <span class="playericon mdi mdi-star"></span>
+                        </a>
+                        <a href="112.html" title="Share">
                             <span class="playericon mdi mdi-share-variant"></span>
                         </a>
                         <a href="javascript:void(0);" class="course-id-s" title="Course Id.">
@@ -183,9 +186,9 @@
                     <div class="row">
                                                 <div class="course_details">
                             <div class="product-user-box">
-                                <img class="img-box" src="../../../bin/admin/profile&#32;pic/5b8d51419125f.png" class="img-responsive"/>
+                                <img class="img-box" src="../../../bin/admin/profile&#32;pic/zz.png" class="img-responsive"/>
                                 <h3>
-                                    <a href="../../../profile/115.html"><span>James Smith</span></a>
+                                    <a href="<%= teacher_profile_path(1) %>"><span>Connect Media</span></a>
                                 </h3>
                                 <div class="user-description-box">
                                     Take simple steps to make yourself feel less stressed. Make time for fun and relaxation, and try to do something you enjoy every day. Find a way of being active that you like. Being physically active releases feelgood hormones called endorphins and can help you to sleep better – helping to lower stress levels.
@@ -208,7 +211,7 @@
                     <div class="user-tabs">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="active"><a href="#tab1" role="tab" data-toggle="tab">Course Content</a></li>
-                            <li><a href="#tab2" role="tab" data-toggle="tab">Detail</a></li>
+                            <li ><a href="#tab2" role="tab" data-toggle="tab">Detail</a></li>
                             <li><a href="#tab3" role="tab" data-toggle="tab">Basic Requirements</a></li>
                                                                                 </ul>
                         <!-- TAB CONTENT -->

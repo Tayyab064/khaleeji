@@ -12,7 +12,7 @@
     <div class="container-fluid profile-middle-background">
         <div class="container">
             <div class="col-md-2 col-xs-12 profile-avatar-container tab-con">
-                <img class="sbox3" src="../bin/admin/profile&#32;pic/square-small.jpg"/>
+                <img class="sbox3" src="../bin/admin/profile&#32;pic/dpb.jpg"/>
                 <div class="rate-section raty"></div>
             </div>
             <div class="location-section col-md-10 col-xs-12">
@@ -138,6 +138,7 @@
                 <div id="t-videos" class="profile-section-fade newest-container newest-container-p">
                     <div class="body body-target-s">
                         <div class="row">
+                            <% @end_user.purchases.each do |pur| %>
                                 <div class="col-md-3 col-sm-6 col-xs-12 tab-con">
                                     <a href="../product/part/5/20.html" title="Social Marketing" class="content-box">
                                         <img src="../bin/admin/Thumbnail/social&#32;marketing.png"/>
@@ -150,43 +151,17 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-md-3 col-sm-6 col-xs-12 tab-con">
-                                    <a href="../product/part/15/60.html" title="Social Marketing" class="content-box">
-                                        <img src="../bin/admin/Thumbnail/social&#32;marketing.png"/>
-                                        <h3>Intermediate</h3>
-                                        <div class="footer">
-                                            <label class="pull-right">1 hour 27 min</label>
-                                            <span class="boxicon mdi mdi-clock pull-right"></span>
-                                            <span class="boxicon mdi mdi-wallet pull-left"></span>
-                                            <label class="pull-left">AED 100</label>
-                                        </div>
-                                    </a>
+                            <% end %>
+                            <% if @end_user.purchases.count == 0 %>
+                                <div class="blog-section body-target-s">
+                                    <div class="text-center">
+                                        <img src="../assets/default/images/empty/articles.png">
+                                        <div class="h-20"></div>
+                                        <span class="empty-first-line">No data found</span>
+                                        <div class="h-20"></div>
+                                    </div>
                                 </div>
-                                <div class="col-md-3 col-sm-6 col-xs-12 tab-con">
-                                    <a href="../product/part/25/100.html" title="Social Marketing" class="content-box">
-                                        <img src="../bin/admin/Thumbnail/social&#32;marketing.png"/>
-                                        <h3>Upper-Intermediate</h3>
-                                        <div class="footer">
-                                            <label class="pull-right">1 hour 27 min</label>
-                                            <span class="boxicon mdi mdi-clock pull-right"></span>
-                                            <span class="boxicon mdi mdi-wallet pull-left"></span>
-                                            <label class="pull-left">AED 100</label>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-md-3 col-sm-6 col-xs-12 tab-con">
-                                    <a href="../product/part/35/140.html" title="Social Marketing" class="content-box">
-                                        <img src="../bin/admin/Thumbnail/social&#32;marketing.png"/>
-                                        <h3>Advanced</h3>
-                                        <div class="footer">
-                                            <label class="pull-right">1 hour 27 min</label>
-                                            <span class="boxicon mdi mdi-clock pull-right"></span>
-                                            <span class="boxicon mdi mdi-wallet pull-left"></span>
-                                            <label class="pull-left">AED 100</label>
-                                        </div>
-                                    </a>
-                                </div>
-                                
+                            <% end %> 
                             </div>
                     </div>
                 </div>
