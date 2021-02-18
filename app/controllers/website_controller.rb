@@ -28,10 +28,19 @@ class WebsiteController < ApplicationController
 			redirect_to :back , notice: 'Error: Already SignedUp!'
 		else
 			if params[:password] == params[:password_confirmation]
-				c = User.create(name: params[:username]  , email: params[:email] , password: params[:password] , role: 0)
-				#UserMailer.usersignup(c).deliver_now
-				session[:user] = params[:email]
-				redirect_to '/' , notice: 'Successfully SignedUp!'
+				c = User.new
+				c.name = params[:username]
+				c.email = params[:email]
+				c.role = 0
+				#my_password = BCrypt::Password.create(params[:password])
+				#p my_password
+				c.password = params[:password]
+				if c.save
+					session[:user] = params[:email]
+					redirect_to '/' , notice: 'Successfully SignedUp!'
+				else
+					redirect_to :back , notice: 'Error: Something went wrong ' + c.errors
+				end
 			else
 				redirect_to :back , notice: 'Error: Password doesnot match'
 			end
