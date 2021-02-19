@@ -1,0 +1,49 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <h1>
+     Article
+      <small>Trending</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="<%= admin_article_path %>"><i class="fa fa-dashboard"></i> Article</a></li>
+    </ol>
+  </div>
+
+  <!-- Main content -->
+  <div class="content body">
+
+    <section id="introduction">
+      <h2 class="page-header"><a href="#introduction">Title</a></h2>
+      <p class="lead">
+        <%= @article.title %>
+      </p>
+    </section><!-- /#introduction -->
+
+
+    <!-- ============================================================= -->
+
+    <section id="download">
+      <h2 class="page-header"><a href="#download">Description</a></h2>
+      <p class="lead">
+        <%= @article.description %>
+      </p>
+      <div class="row">
+      <% @article.questions.each do |ques| %>
+        <div class="col-sm-6">
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title"><%= ques.question %></h3>
+              <span class="label label-primary pull-right"><i class="fa fa-html5"></i></span>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+              <p><%= ques.answer %></p>
+            </div><!-- /.box-body -->
+          </div><!-- /.box -->
+        </div><!-- /.col -->
+      <% end %>
+      </div><!-- /.row -->
+    </section>
+  </div>
+</div>

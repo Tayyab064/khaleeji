@@ -5,7 +5,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-       Course
+       Article
         <small>Advanced Skills</small>
       </h1>
     </section>
@@ -23,30 +23,27 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Course Name</th>
-                  <th>Objective</th>
-                  <th>Course Price</th>
-                  <th>Enroll</th>
+                  <th>Article Name</th>
+                  <th>Description</th>
+                  <th>Added On</th>
                   <th>View</th>
                 </tr>
                 </thead>
                 <tbody>
-                <% @course.each do |cor| %>
+                <% @article.each do |cor| %>
                   <tr>
                     <td><%= cor.title %></td>
-                    <td><%= cor.objective.truncate(75) %></td>
-                    <td>AED <%= cor.price %></td>
-                    <td><%= cor.purchases.count %></td>
-                    <td><button onclick="location.href = '<%= admin_specific_course_path(cor.id) %>';" class="btn btn-info">View</button></td>
+                    <td><%= cor.description.truncate(75) %></td>
+                    <td><%= cor.created_at.strftime("%d %b, %Y") %></td>
+                    <td><button onclick="location.href = '<%= admin_specific_article_path(cor.id) %>';" class="btn btn-info">View</button></td>
                   </tr>
                 <% end %>
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Course Name</th>
-                  <th>Objective</th>
-                  <th>Price</th>
-                  <th>Enroll</th>
+                  <th>Article Name</th>
+                  <th>Description</th>
+                  <th>Added On</th>
                   <th>View</th>
                 </tr>
                 </tfoot>

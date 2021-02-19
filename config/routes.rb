@@ -24,5 +24,11 @@ Rails.application.routes.draw do
     get 'student' => 'admin#students' , as: 'admin_students'
     get 'instructor' => 'admin#instructor' , as: 'admin_instructor'
     get 'add_course' => 'admin#add_course' , as: 'admin_add_course'
+    get 'course_:id' => 'admin#specific_course' , as: 'admin_specific_course'
+
+    get 'article' => 'admin#article' , as: 'admin_article'
+    get 'add_article' => 'admin#add_article' , as: 'admin_add_article'
+    post 'add_artile' => 'admin#save_article' , as: 'admin_save_article'
+    get 'article_:id' => 'admin#specific_article' , as: 'admin_specific_article'
   end
 end

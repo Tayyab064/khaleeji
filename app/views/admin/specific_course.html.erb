@@ -1,0 +1,58 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <h1>
+     Course
+      <small>Trending</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="<%= admin_all_courses_path %>"><i class="fa fa-dashboard"></i> Course</a></li>
+    </ol>
+  </div>
+
+  <!-- Main content -->
+  <div class="content body">
+
+    <section id="title">
+      <h2 class="page-header"><a href="#title">Title</a></h2>
+      <p class="lead">
+        <%= @course.title %>
+      </p>
+    </section><!-- /#introduction -->
+
+
+    <!-- ============================================================= -->
+
+    <section id="objective">
+      <h2 class="page-header"><a href="#objective">Objective</a></h2>
+      <p class="lead"><%= @course.objective %></p>
+      <ul class="bring-up">
+        <li><a href="#">Price: <%= @course.price %></a></li>
+      </ul>
+    </section>
+
+    <section id="download">
+      <h2 class="page-header"><a href="#download">Description</a></h2>
+      <p class="lead">
+        <%= @course.description %>
+      </p>
+      <div class="row">
+        <% @course.outlines.each do |out| %>
+        <div class="col-sm-6">
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title"><%= out.title %></h3>
+              <span class="label label-primary pull-right"><i class="fa fa-html5"></i></span>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+              <p><%= out.description %></p>
+            </div><!-- /.box-body -->
+          </div><!-- /.box -->
+        </div><!-- /.col -->
+        <% end %>
+      </div><!-- /.row -->
+    </section>
+
+  </div>
+</div>

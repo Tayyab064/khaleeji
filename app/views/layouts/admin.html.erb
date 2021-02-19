@@ -138,7 +138,19 @@
             <li><a href="<%= admin_instructor_path %>"><i class="fa fa-circle-o"></i>Instructor</a></li>
           </ul>
         </li>
-        
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-laptop"></i>
+            <span>Articles</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<%= admin_article_path %>"><i class="fa fa-circle-o"></i>All</a></li>
+            <li><a href="<%= admin_add_article_path %>"><i class="fa fa-circle-o"></i>Add</a></li> 
+          </ul>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->
