@@ -1,0 +1,38 @@
+<div class="container-fluid">
+        <div class="container">
+            <div class="blog-section">
+                <div class="col-xs-12 row blog-post-box blog-post-box-s">
+                    <div class="col-md-4 col-xs-12">
+                        <img src="<%= @article.image %>" class="img-responsive">
+                        <span class="date-section"><%= @article.created_at.strftime("%A %d %B %Y") %></span>
+                        <div class="product-user-box">
+                            <img class="img-box" src="../../bin/admin/profile&#32;pic/zz.png" class="img-responsive"/>
+                            <span>Connect Media</span>
+                            <div class="user-description-box">
+                                Take simple steps to make yourself feel less stressed. Make time for fun and relaxation, and try to do something you enjoy every day. Find a way of being active that you like. Being physically active releases feelgood hormones called endorphins and can help you to sleep better – helping to lower stress levels.
+                            </div>
+                            <div class="h-10"></div>
+                            <div class="product-user-box-footer">
+                                <a href="#">Profile</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-8 col-xs-12 text-section">
+                        <h1 class="text-section-s1"><%= @article.title %></h1>
+                        <br>
+                        <div>
+                            <span style="color: rgb(51, 51, 51); font-family: roboto, vazir, Tahoma, Arial, sans-serif; font-size: 12px;"><%= @article.description %></span>
+                            <br>
+                        </div>
+                        <% @article.questions.each do |quest| %>
+                        <hr>
+                        <p dir="ltr" style="margin-right: 0px; margin-bottom: 10px; margin-left: 0px; font-size: 12px; color: rgb(51, 51, 51); font-family: roboto, vazir, Tahoma, Arial, sans-serif;"><strong style="font-weight: bold;"><%= quest.question %></strong></p>
+                        <p dir="ltr" style="margin-right: 0px; margin-bottom: 10px; margin-left: 0px; font-size: 12px; color: rgb(51, 51, 51); font-family: roboto, vazir, Tahoma, Arial, sans-serif;"><%= quest.answer %></p>
+                        <br>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

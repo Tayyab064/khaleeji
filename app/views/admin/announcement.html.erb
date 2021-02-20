@@ -1,0 +1,160 @@
+<style type="text/css">
+.switcher {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switcher input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.sliderr {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.sliderr:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .sliderr {
+  background-color: #2196F3;
+}
+
+input:focus + .sliderr {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .sliderr:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.sliderr.round {
+  border-radius: 34px;
+}
+
+.sliderr.round:before {
+  border-radius: 50%;
+}
+</style>
+  <link rel="stylesheet" href="../admin/plugins/datatables/dataTables.bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.23/datatables.min.css"/>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+       Announcements
+        <small>Advanced Skills</small>
+      </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Trending</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Accouncement</th>
+                  <th>Description</th>
+                  <th>Added On</th>
+                  <th>Visibility</th>
+                  <th>View</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% @announcements.each do |cor| %>
+                  <tr>
+                    <td><%= cor.title %></td>
+                    <td><%= cor.description.truncate(75) %></td>
+                    <td><%= cor.created_at.strftime("%d %b, %Y") %></td>
+                    <td>
+                    	<label class="switcher" onclick="location.href='<%= admin_announcement_visible_path(cor.id) %>'">
+	                        <input type="checkbox" <%= cor.publish ? 'checked' : '' %>>
+	                        <div class="sliderr round"></div>
+	                    </label>
+                    </td>
+                    <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal<%=cor.id%>">View</button>
+                    <div id="myModal<%=cor.id%>" class="modal fade" role="dialog">
+                      <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title"><%= cor.title %></h4>
+                          </div>
+                          <div class="modal-body">
+                            <p><%= cor.description %></p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    </td>
+                  </tr>
+                <% end %>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>Accouncement</th>
+                  <th>Description</th>
+                  <th>Added On</th>
+                  <th>Visibility</th>
+                  <th>View</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>
+<script src="../admin/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script>
+  $(function () {
+    $("#example1").DataTable();
+  });
+</script>

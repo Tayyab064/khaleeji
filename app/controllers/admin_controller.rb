@@ -90,4 +90,35 @@ class AdminController < ApplicationController
 	def specific_article
 		@article = Article.includes(:questions).find(params[:id])
 	end
+
+	def announcement
+		@announcements = Announcement.all
+	end
+
+	def save_announcement
+
+	end
+
+	def add_announcement
+		p params
+		if params[:image].present?
+			c = Announcement.create(image: params[:image] , title: params[:title] , description: params[:description] ) 
+			notic = 'Successfully added'
+		else
+			notic = 'Error: Image Missing'
+		end
+		redirect_to admin_add_announcement_path , notice: notic
+	end
+
+	def announcement_mark_visible
+		announ = Announcement.find(params[:id])
+		poi = !announ.publish
+		p poi
+		announ.update(publish: poi)
+		redirect_to :back , notice: 'Successfully Done'
+	end
+
+	def specific_announcement
+		@announcement = Announcement.find(params[:id])
+	end
 end

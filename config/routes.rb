@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get 'course_:id' => 'website#specific_course' , as: 'specific_course'
   get 'student_:id' => 'website#user' , as: 'student_profile'
 
+  get 'articles' => 'website#articles' , as: 'articles'
+  get 'article_:id' => 'website#specific_article' , as: 'specific_article'
+
 
   #get 'save_course' => 'website#add_course'
   post 'course' => 'website#save_course' , as: 'add_course'
@@ -30,5 +33,11 @@ Rails.application.routes.draw do
     get 'add_article' => 'admin#add_article' , as: 'admin_add_article'
     post 'add_artile' => 'admin#save_article' , as: 'admin_save_article'
     get 'article_:id' => 'admin#specific_article' , as: 'admin_specific_article'
+
+    get 'announcement' => 'admin#announcement' , as: 'admin_announcements'
+    get 'add_announcement' => 'admin#save_announcement' , as: 'admin_add_announcement'
+    post 'add_announcement' => 'admin#add_announcement' , as: 'admin_save_announcement'
+    get 'visible_announcement_:id' => 'admin#announcement_mark_visible' , as: 'admin_announcement_visible'
+    #get 'announcement_:id' => 'admin#specific_announcement' , as: 'admin_specific_announcement'
   end
 end

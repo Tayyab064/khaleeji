@@ -1,0 +1,35 @@
+
+    <div class="h-20"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="container">
+                <div class="h-20"></div>
+                <div class="col-md-12 col-xs-12">
+                    <div class="newest-container">
+                        <div class="row blog-section blog-section-s">
+                            <% @articles.each do |cor| %>
+                            <div class="col-md-3 col-xs-12 article-post-count tab-con">
+                                <div class="post-module">
+                                    <div class="thumbnail">
+                                        <div class="date">
+                                            <div class="day"><%= cor.created_at.strftime("%d") %></div>
+                                            <div class="month"><%= cor.created_at.strftime("%^b") %></div>
+                                        </div>
+                                        <img src="<%= cor.image %>">
+                                    </div>
+                                    <div class="post-content">
+                                        <h1 class="title">
+                                            <a href="<%= specific_article_path(cor.id) %>">
+                                                <h3><%= cor.title %></h3>
+                                            </a>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                      

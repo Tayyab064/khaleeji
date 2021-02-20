@@ -49,6 +49,7 @@ class WebsiteController < ApplicationController
 
 	def index
 		@course = Course.all.order(created_at: :desc).limit(4)
+		@articles = Article.order(created_at: :desc).limit(2)
 	end
 
 	def course
@@ -113,5 +114,13 @@ class WebsiteController < ApplicationController
 
 	def buy_course
 		p params
+	end
+
+	def specific_article
+		@article = Article.includes(:questions).find(params[:id])
+	end
+
+	def articles
+		@articles = Article.order(created_at: :desc)
 	end
 end
