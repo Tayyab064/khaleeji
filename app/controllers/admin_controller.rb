@@ -36,7 +36,7 @@ class AdminController < ApplicationController
 	end
 
 	def specific_course
-		@course = Course.includes(:outlines).find(params[:id])
+		@course = Course.includes(:outlines).includes(:videos).find(params[:id])
 	end
 
 	def students
@@ -120,5 +120,18 @@ class AdminController < ApplicationController
 
 	def specific_announcement
 		@announcement = Announcement.find(params[:id])
+	end
+
+	def update_image_course
+		p params
+		course = Course.find(params[:id])
+		course.update(image: params[:image])
+		redirect_to :back , notice: 'Successfully Updated'
+	end
+
+	def add_video
+		p params
+		vid = Video.create(title: params[:title], url: params[:url], description: params[:description], size: params[:size], duration: params[:duration], course_id: params[:id] )
+		redirect_to :back , notice: 'Successfully Added'
 	end
 end

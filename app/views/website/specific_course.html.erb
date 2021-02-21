@@ -155,13 +155,10 @@
                 </div>
                 <div class="col-md-8 col-xs-12 video-details">
                     <video id="myDiv" controls>
-                        <source src="../../../bin/admin/Thumbnail/demo.mp4" type="video/mp4"/>
+                        <source src="../../../bin/admin/Thumbnail/demoh.mp4" type="video/mp4"/>
                     </video>
                     <div class="video-details-section">
-                        <a title="Add to favorites" href="../../fav/28.html">
-                            <span class="playericon mdi mdi-star"></span>
-                        </a>
-                        <a href="112.html" title="Share">
+                        <a href="javascript:void(0);" title="Share">
                             <span class="playericon mdi mdi-share-variant"></span>
                         </a>
                         <a href="javascript:void(0);" class="course-id-s" title="Course Id.">
@@ -209,15 +206,45 @@
                 <div class="col-md-8 col-xs-12 product-part-container">
                     <div class="user-tabs">
                         <ul class="nav nav-tabs" role="tablist">
-                            <li class="active"><a href="#tab1" role="tab" data-toggle="tab">Course Content</a></li>
-                            <li ><a href="#tab2" role="tab" data-toggle="tab">Detail</a></li>
-                            <li><a href="#tab3" role="tab" data-toggle="tab">Basic Requirements</a></li>
+                            <li class="active"><a href="#tab2" role="tab" data-toggle="tab">Detail</a></li>
+                            <li class="hidden"><a href="#tab1" role="tab" data-toggle="tab">Course Content</a></li>
+                            <li class="hidden"><a href="#tab3" role="tab" data-toggle="tab">Basic Requirements</a></li>
                                                                                 </ul>
                         <!-- TAB CONTENT -->
                         <div class="tab-content">
-                            <div class="active tab-pane fade in" id="tab1">
+                            
+                            <div class="active tab-pane fade in" id="tab2">
+                                <!-- <div class="tab-con"></div> -->
+                                <p dir="ltr" style="line-height: 28px; color: rgb(0, 0, 0);">
+                                    <span style="font-weight: bolder;"><%= @course.title %></span>
+                                </p>
+                                <p dir="ltr" style="margin-bottom: 1rem; line-height: 28px; color: rgb(0, 0, 0);">
+                                    <%= simple_format(@course.description) %>
+                                </p>
+                                <p dir="ltr" style="line-height: 28px; color: rgb(0, 0, 0);">
+                                    <span style="font-weight: bolder;">Objective</span>
+                                </p>
+                                <p dir="ltr" style="margin-bottom: 1rem; line-height: 28px; color: rgb(0, 0, 0);">
+                                    <%= simple_format(@course.objective) %>
+                                </p>
+
+                                <p dir="ltr">
+                                    <span style="font-weight: bolder;">Outline</span>
+                                </p>
+                                <% @course.outlines.each do |out| %>
+                                    <p dir="ltr" style="line-height: 28px; color: rgb(0, 0, 0);">
+                                        <span style="font-weight: bolder;"><%= out.title %></span>
+                                    </p>
+                                    <p dir="ltr" style="margin-bottom: 1rem; line-height: 28px; color: rgb(0, 0, 0);">
+                                        <%= simple_format(out.description) %>
+                                    </p>
+                                <% end %>
+
+                                <span style="font-weight: bolder;">source : ckhaleeji.com</span>
+                            </div>
+                            <div class="tab-pane fade in hidden" id="tab1">
                                 <ul class="part-ul">
-                                                                            <li>
+                                        <li>
                                             <div class="part-links">
                                                 <a  href="#" >
                                                     <div class="col-md-1 hidden-xs tab-con">                                                                                                                    <span class="playicon mdi mdi-play-circle"></span>
@@ -259,7 +286,7 @@
                                                     </div>
                                                                                             </div>
                                         </li>
-                                                                            <li>
+                                        <li>
                                             <div class="part-links">
                                                 <a  href="110.html" >
                                                     <div class="col-md-1 hidden-xs tab-con">                                                                                                                    <span class="playicon mdi mdi-lock"></span>
@@ -387,82 +414,37 @@
                                         </li>
                                                                                                         </ul>
                             </div>
-                            <div class="tab-pane fade" id="tab2">
-                                <!-- <div class="tab-con"></div> -->
-                                <p dir="ltr" style="line-height: 28px; color: rgb(0, 0, 0);">
-                                    <span style="font-weight: bolder;"><%= @course.title %></span>
-                                </p>
-                                <p dir="ltr" style="margin-bottom: 1rem; line-height: 28px; color: rgb(0, 0, 0);">
-                                    <%= simple_format(@course.description) %>
-                                </p>
-                                <p dir="ltr" style="line-height: 28px; color: rgb(0, 0, 0);">
-                                    <span style="font-weight: bolder;">Objective</span>
-                                </p>
-                                <p dir="ltr" style="margin-bottom: 1rem; line-height: 28px; color: rgb(0, 0, 0);">
-                                    <%= simple_format(@course.objective) %>
-                                </p>
-
-                                <p dir="ltr">
-                                    <span style="font-weight: bolder;">Outline</span>
-                                </p>
-                                <% @course.outlines.each do |out| %>
-                                    <p dir="ltr" style="line-height: 28px; color: rgb(0, 0, 0);">
-                                        <span style="font-weight: bolder;"><%= out.title %></span>
-                                    </p>
-                                    <p dir="ltr" style="margin-bottom: 1rem; line-height: 28px; color: rgb(0, 0, 0);">
-                                        <%= simple_format(out.description) %>
-                                    </p>
-                                <% end %>
-
-                                <span style="font-weight: bolder;">source : ckhaleeji.com</span>
-                            </div>
-                            <div class="tab-pane fade in tab-body" id="tab3">
-                                                                                                        <div class="col-md-4 col-xs-12 tab-con">
-                                        <a href="../1/4.html" title="How to Draw Characters" class="content-box content-box-r">
-                                            <img src="../../../bin/admin/Thumbnail/1.png"/>
-                                            <h3>How to Draw Characters</h3>
-                                            <div class="footer">
-                                                <span class="boxicon mdi mdi-wallet pull-left"></span>
-                                                <label class="pull-left">AED 100</label>
-                                            </div>
-                                        </a>
-                                    </div>
-                                                                                                        <div class="col-md-4 col-xs-12 tab-con">
-                                        <a href="../4/16.html" title="Network Security" class="content-box content-box-r">
-                                            <img src="../../../bin/admin/Thumbnail/2.png"/>
-                                            <h3>Beginner</h3>
-                                            <div class="footer">
-                                                <span class="boxicon mdi mdi-wallet pull-left"></span>
-                                                <label class="pull-left">AED100</label>
-                                            </div>
-                                        </a>
-                                    </div>
-                                                                                                        <div class="col-md-4 col-xs-12 tab-con">
-                                        <a href="../7/28.html" title="Advanced Photography" class="content-box content-box-r">
-                                            <img src="../../../bin/admin/Thumbnail/5.png"/>
-                                            <h3>Intermediate</h3>
-                                            <div class="footer">
-                                                <span class="boxicon mdi mdi-wallet pull-left"></span>
-                                                <label class="pull-left">AED 100</label>
-                                            </div>
-                                        </a>
-                                    </div>
-                                                            </div>
-                            <div class="tab-pane fade" id="tab4">
-                                                            </div>
-                            <div class="tab-pane fade" id="tab5">
-                                                            </div>
-                            <div class="tab-pane fade" id="tab6">
-                                <table class="table table-hover table-bordered" style="margin-bottom: 0;">
-                                    <thead>
-                                        <th class="text-center">العنوان</th>
-                                        <th class="text-center">تاريخ/الوقت</th>
-                                        <th class="text-center">المدة الزمنية</th>
-                                        <th class="text-center">الحالة</th>
-                                    </thead>
-                                	<tbody>
-                                                                    	</tbody>
-                                </table>
+                            <div class="tab-pane fade in tab-body hidden" id="tab3">
+                                <div class="col-md-4 col-xs-12 tab-con">
+                                    <a href="../1/4.html" title="How to Draw Characters" class="content-box content-box-r">
+                                        <img src="../../../bin/admin/Thumbnail/1.png"/>
+                                        <h3>How to Draw Characters</h3>
+                                        <div class="footer">
+                                            <span class="boxicon mdi mdi-wallet pull-left"></span>
+                                            <label class="pull-left">AED 100</label>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-xs-12 tab-con">
+                                    <a href="../4/16.html" title="Network Security" class="content-box content-box-r">
+                                        <img src="../../../bin/admin/Thumbnail/2.png"/>
+                                        <h3>Beginner</h3>
+                                        <div class="footer">
+                                            <span class="boxicon mdi mdi-wallet pull-left"></span>
+                                            <label class="pull-left">AED100</label>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-xs-12 tab-con">
+                                    <a href="../7/28.html" title="Advanced Photography" class="content-box content-box-r">
+                                        <img src="../../../bin/admin/Thumbnail/5.png"/>
+                                        <h3>Intermediate</h3>
+                                        <div class="footer">
+                                            <span class="boxicon mdi mdi-wallet pull-left"></span>
+                                            <label class="pull-left">AED 100</label>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -488,11 +470,11 @@
         $(function () {
             fluidPlayer("myDiv", {
                 layoutControls: {
-                   
+                    primaryColor: "#db5400",
                     logo: {
                         imageUrl: '/bin/admin/images/logo/logo.png', // Default null
                         position: 'top right', // Default 'top left'
-                        clickUrl: 'www.connectmedia.ae', // Default null
+                        clickUrl: null , // Default null
                         opacity: 0.9, // Default 1
                         imageMargin: '10px', // Default '2px'
                         hideWithControls: true, // Default false

@@ -50,6 +50,7 @@ class WebsiteController < ApplicationController
 	def index
 		@course = Course.all.order(created_at: :desc).limit(4)
 		@articles = Article.order(created_at: :desc).limit(2)
+		@announc = Announcement.order(created_at: :desc).limit(2)
 	end
 
 	def course
@@ -122,5 +123,9 @@ class WebsiteController < ApplicationController
 
 	def articles
 		@articles = Article.order(created_at: :desc)
+	end
+
+	def announcements
+		@announ = Announcement.order(created_at: :desc)
 	end
 end

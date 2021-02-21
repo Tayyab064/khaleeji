@@ -1,0 +1,37 @@
+<style type="text/css">
+    .blog-section .row{
+            display: block;
+    }
+</style>
+<div class="container-fluid">
+        <div class="container">
+
+            <div class="blog-section">
+                <% @announ.each do |anno| %>
+                    <div class="row blog-post-box">
+                        <div class="col-md-3 col-xs-12">
+                            <img src="<%= anno.image %>" class="img-responsive">
+                        </div>
+                        <div class="col-md-9 col-xs-12 text-section">
+                            <a href="javascript:void(0);"><h3><%= anno.title %></h3></a>
+                            <p dir="ltr"><%= anno.description %></p>
+                        </div>
+                    </div>
+                <% end %>
+
+                <% if @announ.count == 0 %>
+                    <div class="row blog-post-box">
+                        <div class="col-md-3 col-xs-12">
+                            <img src="../../../bin/admin/profile pic/zz.png" class="img-responsive">
+                        </div>
+                        <div class="col-md-9 col-xs-12 text-section">
+                            <a href="javascript:void(0);"><h3>Currently No Announcements</h3></a>
+                            <p dir="ltr">Take simple steps to make yourself feel less stressed. Make time for fun and relaxation, and try to do something you enjoy every day. Find a way of being active that you like. Being physically active releases feelgood hormones called endorphins and can help you to sleep better – helping to lower stress levels.</p>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+            <div class="h-10"></div>
+            <div class="pagi text-center center-block col-xs-12"></div>
+        </div>
+    </div>

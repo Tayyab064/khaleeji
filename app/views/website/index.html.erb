@@ -3,7 +3,7 @@
         <div class="parts-slider" style="background:url('bin/admin/files/img.jpg');">
             <div class="col-xs-12 col-md-4 col-md-offset-4 parts-slider-container">
                 <h2>Online Courses</h2>
-                <span>With Ckhaleeji, you will be able to learn to recognize, read, and pronounce the Arabic
+                <span>With Connect Media, you will be able to learn to recognize, read, and pronounce the Arabic
 language perfectly. We will teach you Arabic letters and how they look like in their various forms. Read Arabic literature fluently in its natural form. Speak with us in perfect Arabic accent</span>
                 <div class="parts-slider-button">
                     <a href="<%= signin_path %>">Start Learnings</a>
@@ -124,17 +124,23 @@ language perfectly. We will teach you Arabic letters and how they look like in t
                     </div>
                     <div class="body">
                         <ul>
-                                                            <li>
-                                    <a href="<%= specific_article_path(@articles.last.id) %>">
-                                        <img src="<%= @articles.last.image %>" alt=""><span><%= @articles.last.title %></span><label for=""><%= @articles.last.created_at.strftime("%A %d %B %Y") %></label>
+                            <% @articles.each do |arti| %>
+                                <li>
+                                    <a href="<%= specific_article_path(arti.id) %>">
+                                        <img src="<%= @articles.last.image %>" alt=""><span><%= arti.title %></span><label for=""><%= arti.created_at.strftime("%A %d %B %Y") %></label>
                                     </a>
                                 </li>
-                                                            <li>
-                                    <a href="<%= specific_article_path(@articles.first.id) %>">
-                                        <img src="<%= @articles.first.image %>" alt=""><span><%= @articles.first.title %></span><label for=""><%= @articles.first.created_at.strftime("%A %d %B %Y") %></label>
+                            <% end %>
+
+                            <% if @articles.count == 0 %>
+                                <li>
+                                    <a href="javascript:void(0);">
+                                        <img src="bin/admin/images/3602312.png" alt=""><span>Currently No Articles</span>
                                     </a>
                                 </li>
-                                                    </ul>
+                            <% end %>
+                                                            
+                        </ul>
                     </div>
                     <div class="more-link">
                         <i class="secicon mdi mdi-dots-horizontal"></i>
@@ -149,13 +155,31 @@ language perfectly. We will teach you Arabic letters and how they look like in t
                     </div>
                     <div class="body">
                         <ul>
-                                                            <li><a href="blog/post/16.html"><img src="bin/admin/images/62374.jpg" alt=""><span>4 Ways We Can Avoid Workplace Burnout</span><label for="">Tuesday 04 August 2020</label></a></li>
-                                                            <li><a href="blog/post/15.html"><img src="bin/admin/images/114726-OOYIK0-823.jpg" alt=""><span>How To Stress Less In 2019</span><label for="">Tuesday 04 August 2020</label></a></li>
-                                                    </ul>
+                            
+                            <% @announc.each do |anno| %>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <img src="<%= anno.image %>" alt="">
+                                    <span><%= anno.title %></span>
+                                    <label for=""><%= anno.created_at.strftime("%A %d %B %Y") %></label>
+                                </a>
+                            </li>
+                            <% end %>
+
+                            <% if @announc.count == 0 %>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <img src="bin/admin/images/62374.jpg" alt="">
+                                    <span>Currently No News</span>
+                                    <label for=""></label>
+                                </a>
+                            </li>
+                            <% end %>
+                        </ul>
                     </div>
                     <div class="more-link">
                         <i class="secicon mdi mdi-dots-horizontal"></i>
-                        <a href="blog.1.html">More</a>
+                        <a href="<%= announcements_path %>">More</a>
                     </div>
                 </div>
             </div>

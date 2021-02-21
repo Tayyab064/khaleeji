@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'articles' => 'website#articles' , as: 'articles'
   get 'article_:id' => 'website#specific_article' , as: 'specific_article'
 
+  get 'news' => 'website#announcements' , as: 'announcements'
+
 
   #get 'save_course' => 'website#add_course'
   post 'course' => 'website#save_course' , as: 'add_course'
@@ -28,6 +30,9 @@ Rails.application.routes.draw do
     get 'instructor' => 'admin#instructor' , as: 'admin_instructor'
     get 'add_course' => 'admin#add_course' , as: 'admin_add_course'
     get 'course_:id' => 'admin#specific_course' , as: 'admin_specific_course'
+    post 'course_image' => 'admin#update_image_course' , as: 'admin_update_image_course'
+
+    post 'video' => 'admin#add_video' , as: 'admin_add_video'
 
     get 'article' => 'admin#article' , as: 'admin_article'
     get 'add_article' => 'admin#add_article' , as: 'admin_add_article'
