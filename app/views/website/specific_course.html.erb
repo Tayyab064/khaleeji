@@ -25,15 +25,21 @@
 
                     <div class="product-details-box">
                         <span class="proicon mdi mdi-alarm"></span>
-                        <span>1 hour 27 min</span>
+                        <% sus = @course.videos.pluck(:duration).sum %>
+                        <% if sus > 59 %>
+                            <% hou_sus = sus / 60 %>
+                            <% min_sus = sus % 60 %>
+                            <span><%= hou_sus %> hour <%= min_sus %> min</span>
+                        <% else %>
+                            <span>0 hour <%= sus %> min</span>
+                        <% end %>
                     </div>
                     <div class="product-details-box">
                         <span class="proicon mdi mdi-calendar-month"></span><span>01 August 2020</span>
                     </div>
                     <div class="product-details-box">
                         <span class="proicon mdi mdi-database"></span><span>
-                            197
-                            MB
+                           <%= @course.videos.pluck(:size).sum %> MB
                         </span>
                     </div>
                     <div class="product-details-box">
@@ -240,7 +246,7 @@
                                     </p>
                                 <% end %>
 
-                                <span style="font-weight: bolder;">source : ckhaleeji.com</span>
+                                <span style="font-weight: bolder;">source : ConnectMedia</span>
                             </div>
                             <div class="tab-pane fade in hidden" id="tab1">
                                 <ul class="part-ul">

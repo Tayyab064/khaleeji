@@ -42,7 +42,14 @@ language perfectly. We will teach you Arabic letters and how they look like in t
                             </div>
                             <div class="item-container">
                                 <div class="col-md-10 timer-item">
-                                    <label>1 hour 27 min</label>
+                                    <% su = @course.first.videos.pluck(:duration).sum %>
+                                    <% if su > 59 %>
+                                        <% hou_su = su / 60 %>
+                                        <% min_su = su % 60 %>
+                                        <label><%= hou_su %> hour <%= min_su %> min</label>
+                                    <% else %>
+                                        <label>0 hour <%= su %> min</label>
+                                    <% end %>
                                 </div>
                                 <div class="col-md-2 ">
                                     <span class="homeicon mdi mdi-alarm"></span>
@@ -99,7 +106,14 @@ language perfectly. We will teach you Arabic letters and how they look like in t
                                 <span class="avatar" title="Connect Media" onclick="window.location.href = '<%= teacher_profile_path(1) %>'">
                                     <img src="bin/admin/profile&#32;pic/zz.png"/>
                                 </span>
-                                <label class="pull-right content-clock">1 hour 27 min</label>
+                                <% sus = cor.videos.pluck(:duration).sum %>
+                                <% if sus > 59 %>
+                                    <% hou_sus = sus / 60 %>
+                                    <% min_sus = sus % 60 %>
+                                    <label class="pull-right content-clock"><%= hou_sus %> hour <%= min_sus %> min</label>
+                                <% else %>
+                                    <label class="pull-right content-clock">0 hour <%= sus %> min</label>
+                                <% end %>
                                 <span class="boxicon mdi mdi-clock pull-right"></span>
                                 <span class="boxicon mdi mdi-wallet pull-left"></span>
                                 <label class="pull-left">AED <%= cor.price %></label>
