@@ -47,6 +47,15 @@ class WebsiteController < ApplicationController
 		end
 	end
 
+	def signout
+		if session[:user].present?
+			session[:user] = nil
+			redirect_to '/' , notice: "Successfully Signedout"
+		else
+			redirect_to '/' , notice: 'Error: Signin first'
+		end
+	end
+
 	def index
 		@course = Course.all.order(created_at: :desc).limit(4)
 		@articles = Article.order(created_at: :desc).limit(2)
@@ -74,6 +83,7 @@ class WebsiteController < ApplicationController
 		unless user == @end_user
 			redirect_to :back , notice: "Error: Dont have access to others profile"
 		end
+		@course = user.purchases
 	end
 
 	def save_course
@@ -115,6 +125,17 @@ class WebsiteController < ApplicationController
 
 	def buy_course
 		p params
+		if @end_user.role == 'end_user'
+			if @end_user.purchases.pluck(:course_id).include? params[:course_id].to_i
+				noti = 'Error: Already purchased this course'
+			else
+				pu = Purchase.create(payment: params[:pay_method] , course_id: params[:course_id] , user_id: @end_user.id)
+				noti = 'Successfully Purchases'
+			end
+		else
+			noti = 'Error: Dont have access to purchase this course'
+		end
+		redirect_to :back , notice: noti
 	end
 
 	def specific_article

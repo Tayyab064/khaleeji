@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'course' => 'website#course' , as: "course"
   get 'signin' => 'website#signin' , as: 'signin'
   post 'signin' => 'website#signin_save' , as: 'signin_save'
+  get 'signout' => 'website#signout' , as: 'signout_user'
   post 'signup' => 'website#signup' , as: 'signup'
   get 'instructor_:id' => 'website#teacher' , as: 'teacher_profile'
   get 'course_:id' => 'website#specific_course' , as: 'specific_course'

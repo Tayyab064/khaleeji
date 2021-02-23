@@ -81,26 +81,11 @@
 
                             <%= form_tag(web_buy_course_path , method: "post" , :multipart => true) do %>
                             <div class="modal-body">
-                                <p>Choose a payment method</p>
                                 <p>
-                                    <input type="hidden" id="course_id" value="<%= @course.id %>">
-                                <div class="radio">
-                                    <%= radio_button_tag :meth , 'withdrawn' , true %>
-                                    <label class="radio-label" for="mode-1">Withdrawn<b id="credit-remain-modal">(AED)</b></label>
-                                </div>
-                                    <div class="radio">
-                                        <%= radio_button_tag :meth , 'paytm'  %>
-                                        <label class="radio-label" for="mode-4"> Paytm </label>
-                                    </div>
-                                    <div class="radio">
-                                        <%= radio_button_tag :meth , 'payu'  %>
-                                        &nbsp;
-                                        <label class="radio-label" for="mode-5"> Payu </label>
-                                    </div>
-                                    <div class="radio">
-                                        <%= radio_button_tag :meth , 'razorpay'  %>
-                                        &nbsp;
-                                        <label class="radio-label" for="mode-6"> Razorpay </label>
+                                    <%= hidden_field_tag 'course_id', @course.id %>
+                                    <div class="">
+                                        <label class="control-label" for="inputDefault">Choose Payment Method</label>
+                                        <%= select_tag "pay_method", raw("<option value='Deposit (Bank Account)'>Deposit (Bank Account)</option><option value='Paytm'>Paytm</option><option value='Payu'>Payu</option><option value='Razorpay'>Razorpay</option>") , class: 'form-control' %>
                                     </div>
                                 <div class="h-10"></div>
                                 <div class="table-responsive table-base-price">

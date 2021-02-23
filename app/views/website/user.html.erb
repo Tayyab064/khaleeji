@@ -16,7 +16,7 @@
                 <div class="rate-section raty"></div>
             </div>
             <div class="location-section col-md-10 col-xs-12">
-                <div class="profile_name_item"><b><%= @end_user.name %></div>
+                <div class="profile_name_item"><b><%= @end_user.name %><a style="float: right; color: white; " href="<%= signout_user_path %>" >SignOut</a></div>
                 <div class="profile_register_date_item"><b>Registration Date: <%= @end_user.created_at.strftime("%d %b %Y") %></b></div>
             </div>
         </div>
@@ -139,15 +139,16 @@
                     <div class="body body-target-s">
                         <div class="row">
                             <% @end_user.purchases.each do |pur| %>
+                            <% cour = pur.course %>
                                 <div class="col-md-3 col-sm-6 col-xs-12 tab-con">
                                     <a href="../product/part/5/20.html" title="Social Marketing" class="content-box">
-                                        <img src="../bin/admin/Thumbnail/social&#32;marketing.png"/>
-                                        <h3>Beginner</h3>
+                                        <img src="<%= cour.image %>"/>
+                                        <h3><%= cour.title %></h3>
                                         <div class="footer">
-                                            <label class="pull-right">1 hour 27 min</label>
-                                            <span class="boxicon mdi mdi-clock pull-right"></span>
+                                            <label class="pull-right"><%= pur.status.capitalize %></label>
+                                            <span class="boxicon mdi mdi-school pull-right"></span>
                                             <span class="boxicon mdi mdi-wallet pull-left"></span>
-                                            <label class="pull-left">AED 100</label>
+                                            <label class="pull-left">AED <%= cour.price %></label>
                                         </div>
                                     </a>
                                 </div>
