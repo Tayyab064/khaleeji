@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-	before_action :allow_iframe
+	#before_action :allow_iframe
 	before_action :is_admin , except: [:signin , :approve_signin]
 
 	def signin
