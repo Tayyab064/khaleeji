@@ -141,7 +141,7 @@
                             <% @end_user.purchases.each do |pur| %>
                             <% cour = pur.course %>
                                 <div class="col-md-3 col-sm-6 col-xs-12 tab-con">
-                                    <a href="../product/part/5/20.html" title="Social Marketing" class="content-box">
+                                    <a href="<%= specific_course_path(cour.id) %> " title="Social Marketing" class="content-box">
                                         <img src="<%= cour.image %>"/>
                                         <h3><%= cour.title %></h3>
                                         <div class="footer">
