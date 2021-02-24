@@ -1,7 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  
+
 
   private
+
+  def allow_iframe
+    response.headers.delete "X-Frame-Options"
+  end
+
   def restrict_user
     restrict_access_to_user || render_unauthorized
   end
