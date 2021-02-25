@@ -5,10 +5,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def allow_iframe
-    response.headers.delete "X-Frame-Options"
-  end
-
   def restrict_user
     restrict_access_to_user || render_unauthorized
   end
@@ -66,4 +62,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def is_instructor
+    if session[:instructor].present?
+      unless u = User.where(role: 1).find_by_email(session[:instructor])
+        if  u.block == false
+         redirect_to '/instructor/signin' , notice: 'Error: Dont have access'
+        else
+          redirect_to '/instructor/signin' , notice: 'Error: Kindly Signin first'
+        end
+      end
+      @instructor = u
+    else
+      redirect_to '/instructor/signin' , notice: 'Error: Kindly Signin first'
+    end
+  end
 end

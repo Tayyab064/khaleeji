@@ -46,4 +46,19 @@ Rails.application.routes.draw do
     get 'visible_announcement_:id' => 'admin#announcement_mark_visible' , as: 'admin_announcement_visible'
     #get 'announcement_:id' => 'admin#specific_announcement' , as: 'admin_specific_announcement'
   end
+
+  scope 'instructor' do
+    get 'signup' => 'instructor#signup' , as: 'instructor_signup_page'
+    get 'signin' => 'instructor#signin' , as: 'instructor_signin_page'
+    post 'signin' => 'instructor#approve_signin' , as: 'instructor_signin'
+    post 'signup' => 'instructor#approve_signup' , as: 'instructor_signup'
+    get 'signout' => 'instructor#signout' , as: 'instructor_signout'
+
+    get 'index' => 'instructor#index' , as: 'instructor_index'
+    get 'course' => 'instructor#course' , as: 'instructor_course'
+    get 'add_course' => 'instructor#add_course' , as: 'instructor_add_course'
+    post 'course' => 'instructor#save_course' , as: 'instructor_save_course'
+
+  end
+
 end

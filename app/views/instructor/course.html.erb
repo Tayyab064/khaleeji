@@ -27,6 +27,7 @@
                   <th>Objective</th>
                   <th>Price</th>
                   <th>Enroll</th>
+                  <th>Status</th>
                   <th>View</th>
                 </tr>
                 </thead>
@@ -37,7 +38,8 @@
                     <td><%= cor.objective.truncate(75) %></td>
                     <td>AED <%= cor.price %></td>
                     <td><%= cor.purchases.count %></td>
-                    <td><button onclick="location.href = '<%= admin_specific_course_path(cor.id) %>';" class="btn btn-info">View</button></td>
+                    <td><%= cor.status.capitalize %></td>
+                    <td><button onclick="location.href = '#';" class="btn btn-info">View</button></td>
                   </tr>
                 <% end %>
                 </tbody>
@@ -47,6 +49,7 @@
                   <th>Objective</th>
                   <th>Price</th>
                   <th>Enroll</th>
+                  <th>Status</th>
                   <th>View</th>
                 </tr>
                 </tfoot>

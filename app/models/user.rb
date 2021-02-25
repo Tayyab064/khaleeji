@@ -9,5 +9,6 @@ class User < ApplicationRecord
 	enum role: [:end_user , :owner , :admin]
 
 	has_many :purchases , dependent: :destroy
+	has_many :courses , foreign_key: "instructor_id" ,dependent: :destroy
 
 end

@@ -7,7 +7,7 @@
                 <div class="col-md-12 col-xs-12">
                     <div class="newest-container">
                         <div class="row body body-target body-target-s">
-                            <% @course.each_with_index do |cor, ind| %>
+                            <% @course.each do |cor| %>
                             <div class="col-md-3 col-sm-6 col-xs-12 tab-con">
                                 <a href="<%= specific_course_path(cor.id) %>" title="<%= cor.title %>" class="content-box pagi-content-box">
 
@@ -16,9 +16,17 @@
                                     </div>
                                     <h3><%= cor.title %></h3>
                                     <div class="footer">
-                                        <span class="avatar" title="Alex Cook" onclick="window.location.href = '/profile/108'"><img src="bin/admin/profile&#32;pic/22654-6-man.png"></span>
+                                        <span class="avatar" title="ConnectMedia" onclick="window.location.href = '<%= teacher_profile_path(1) %>'"><img src="bin/admin/profile&#32;pic/zz.png"></span>
 
-                                            <label class="pull-right content-clock">1 hour 27 min</label>
+                                            <% sus = cor.videos.pluck(:duration).sum %>
+                                            <% if sus > 59 %>
+                                                <% hou_sus = sus / 60 %>
+                                                <% min_sus = sus % 60 %>
+                                                <span class="pull-right content-clock"><%= hou_sus %> hour <%= min_sus %> min</span>
+                                            <% else %>
+                                                <span class="pull-right content-clock">0 hour <%= sus %> min</span>
+                                            <% end %>
+                                            
                                             <span class="boxicon mdi mdi-clock pull-right"></span>
 
                                         <span class="boxicon mdi mdi-wallet pull-left"></span>

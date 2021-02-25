@@ -1,5 +1,4 @@
 class WebsiteController < ApplicationController
-	#before_action :allow_iframe
 	before_action :is_enduser_check
 	before_action :is_enduser , only: [:user , :buy_course]
 	
