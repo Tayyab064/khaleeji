@@ -6,7 +6,7 @@
     <section class="content-header">
       <h1>
        Course
-        <small>Advanced Skills</small>
+        <small>Pending</small>
       </h1>
     </section>
 
@@ -26,9 +26,7 @@
                   <th>Course Name</th>
                   <th>Objective</th>
                   <th>Price</th>
-                  <th>Enroll</th>
-                  <th>Status</th>
-                  <th>View</th>
+                  <th>Verify</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -37,9 +35,7 @@
                     <td><%= cor.title %></td>
                     <td><%= cor.objective.truncate(75) %></td>
                     <td>AED <%= cor.price %></td>
-                    <td><%= cor.purchases.count %></td>
-                    <td><%= cor.status.capitalize %></td>
-                    <td><button onclick="location.href = '<%= instructor_specific_course_path(cor.id) %>';" class="btn btn-info">View</button></td>
+                    <td><button onclick="location.href = '<%= admin_approve_course_path(cor.id) %>';" class="btn btn-info">Verify</button></td>
                   </tr>
                 <% end %>
                 </tbody>
@@ -48,9 +44,7 @@
                   <th>Course Name</th>
                   <th>Objective</th>
                   <th>Price</th>
-                  <th>Enroll</th>
-                  <th>Status</th>
-                  <th>View</th>
+                  <th>verify</th>
                 </tr>
                 </tfoot>
               </table>

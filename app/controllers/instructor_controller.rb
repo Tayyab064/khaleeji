@@ -40,7 +40,7 @@ class InstructorController < ApplicationController
 	def approve_signin
 		p params
 		if instructor = User.where(role: 1).find_by(email: params[:email]).try(:authenticate, params[:password]) 
-			if instructor.verified == true && instructor.block == false
+			if instructor.block == false
 				session[:instructor] = params[:email]
 				redirect_to '/instructor/index' , notice: 'Successfully SignedIn!'
 			else
@@ -102,5 +102,18 @@ class InstructorController < ApplicationController
 			notic = 'Error: Image Missing'
 		end
 		redirect_to instructor_add_course_path , notice: notic
+	end
+
+	def specific_course
+		#@instructor.courses
+		unless @course = Course.includes(:outlines).includes(:videos).includes(:lessons).find(params[:id])
+			redirect_to instructor_course_path , notice: 'Error: Cant have access to that course'
+		end
+	end
+
+	def save_lessons
+		p params
+		Lesson.create(title: params[:title], image: params[:image], course_id: params[:course_id])
+		redirect_to :back , notice: 'Successfully Added'
 	end
 end

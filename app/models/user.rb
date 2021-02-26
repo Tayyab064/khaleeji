@@ -6,7 +6,7 @@ class User < ApplicationRecord
 	has_secure_token :password_reset_token
 	
 	enum gender: [:male , :female]
-	enum role: [:end_user , :owner , :admin]
+	enum role: [:end_user , :instructor , :admin]
 
 	has_many :purchases , dependent: :destroy
 	has_many :courses , foreign_key: "instructor_id" ,dependent: :destroy

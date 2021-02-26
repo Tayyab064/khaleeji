@@ -35,6 +35,26 @@ class AdminController < ApplicationController
 		@course = Course.includes(:purchases)
 	end
 
+	def pending_course
+		@course = Course.where(status: 'pending').includes(:purchases)
+	end
+
+	def approved_course
+		@course = Course.approved.includes(:purchases)
+	end
+
+	def block_course
+		course = Course.find(params[:id])
+		course.update(status: 'blocked')
+		redirect_to :back , notice: 'Successfully blocked'
+	end
+
+	def approve_course
+		course = Course.find(params[:id])
+		course.update(status: 'approved')
+		redirect_to :back , notice: 'Successfully approved'
+	end
+
 	def specific_course
 		@course = Course.includes(:outlines).includes(:videos).find(params[:id])
 	end

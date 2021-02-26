@@ -1,0 +1,285 @@
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        <%= @course.title %>
+      </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <div class="row">
+        <div class="col-md-3">
+
+          <!-- Profile Image -->
+          <div class="box box-primary">
+            <div class="box-body box-profile">
+              <img class="profile-user-img img-responsive img-circle" src="<%= @course.image %>" alt="User profile picture">
+
+              <h3 class="profile-username text-center">Status: <%= @course.status.capitalize %></h3>
+
+              <p class="text-muted text-center">Price: AED<%= @course.price %></p>
+
+              <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <b>Videos</b> <a class="pull-right">1,322</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Lessons</b> <a class="pull-right">543</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Enrolled</b> <a class="pull-right">13,287</a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+          <!-- About Me Box -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Over View</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <strong><i class="fa fa-book margin-r-5"></i> Objective</strong>
+
+              <p class="text-muted">
+                <%= simple_format(@course.objective) %>
+              </p>
+
+              <hr>
+
+              <strong><i class="fa fa-file-text-o margin-r-5"></i> Description</strong>
+
+              <p><%= simple_format(@course.description) %></p>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+          <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#outline" data-toggle="tab">Outline</a></li>
+              <li><a href="#videos" data-toggle="tab">Videos</a></li>
+              <li><a href="#lessons" data-toggle="tab">Lessons</a></li>
+              <li><a href="#exercises" data-toggle="tab">Exercises</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="active tab-pane" id="outline">
+              <% @course.outlines.each_with_index do |outi , ind | %>
+                <!-- Post -->
+                <div class="post">
+                  <div class="user-block">
+                    <img class="img-circle img-bordered-sm" src="<%= @course.image %>" alt="course">
+                        <span class="username">
+                          <a href="javascript:void(0);"><%= outi.title %></a>
+                          <% if ind == 0 %>
+                            <a href="#" class="pull-right btn-box-tool">Button</a>
+                          <% end %>
+                        </span>
+                    <span class="description"><%= @course.title %></span>
+                  </div>
+                  <!-- /.user-block -->
+                  <p>
+                    <%= simple_format(outi.description) %>
+                  </p>
+                </div>
+                <!-- /.post -->
+              <% end %>
+              </div>
+              
+              <!-- /.tab-pane -->
+              <div class="tab-pane" id="videos">
+                <% @course.videos.each_with_index do |outi , ind | %>
+                <!-- Post -->
+                <div class="post">
+                  <div class="user-block">
+                    <img class="img-circle img-bordered-sm" src="<%= @course.image %>" alt="course">
+                        <span class="username">
+                          <a href="javascript:void(0);"><%= outi.title %></a>
+                          <% if ind == 0 %>
+                            <a href="#" class="pull-right btn-box-tool">Button</a>
+                          <% end %>
+                        </span>
+                    <% sus = outi.duration %>
+                    <% if sus > 59 %>
+                      <% hou_sus = sus / 60 %>
+                      <% min_sus = sus % 60 %>
+                      <span class="description">Duration: <%= hou_sus %> hour <%= min_sus %> min - Size: <%= outi.size %>MB</span>
+                    <% else %>
+                      <span class="description">Duration: 0 hour <%= sus %> min - Size: <%= outi.size %>MB</span>
+                    <% end %>
+                  </div>
+                  <!-- /.user-block -->
+                  <p>
+                    <%= simple_format(outi.description) %>
+                    <!-- <br>
+                    <a href="<%= outi.url %>" target="_blank" >Open Video</a> -->
+                  </p>
+                </div>
+                <!-- /.post -->
+              <% end %>
+              </div>
+              <!-- /.tab-pane -->
+
+              <div class="tab-pane" id="lessons">
+                
+                <%= form_tag(instructor_save_lesson_path , method: "post" , class: "form-horizontal" , :multipart => true) do %> 
+                  <div class="form-group">
+                    <label for="inputTitle" class="col-sm-2 control-label">Title</label>
+
+                    <div class="col-sm-10">
+                    <%= text_field_tag :title , '' , class: 'form-control', autofocus: true , placeholder: "Title" %>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputFile" class="col-sm-2 control-label">Insert File</label>
+
+                    <div class="col-sm-10">
+                      <%= file_field_tag "image" %>
+                    </div>
+                  </div>
+                  <%= hidden_field_tag :course_id, @course.id %>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button type="submit" class="btn btn-danger">Submit</button>
+                    </div>
+                  </div>
+                <% end %>
+
+                <hr>
+
+                <% @course.lessons.each do |outi | %>
+                <!-- Post -->
+                <div class="post">
+                  <div class="user-block">
+                    <img class="img-circle img-bordered-sm" src="<%= @course.image %>" alt="course">
+                        <span class="username">
+                          <a href="javascript:void(0);"><%= outi.title %></a>
+                        </span>
+
+                      <span class="description"></span>
+                  </div>
+                  <!-- /.user-block -->
+                  <p>
+                    <a class="btn btn-primary view-pdf" target="_blank" href="<%= outi.image %>">View File</a> 
+                  </p>
+                </div>
+                <!-- /.post -->
+                <% end %>
+              </div>
+              <!-- /.tab-pane -->
+
+              <div class="tab-pane" id="exercises">
+                <!-- The timeline -->
+                <ul class="timeline timeline-inverse">
+                  <!-- timeline time label -->
+                  <li class="time-label">
+                        <span class="bg-red">
+                          10 Feb. 2014
+                        </span>
+                  </li>
+                  <!-- /.timeline-label -->
+                  <!-- timeline item -->
+                  <li>
+                    <i class="fa fa-envelope bg-blue"></i>
+
+                    <div class="timeline-item">
+                      <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
+
+                      <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
+
+                      <div class="timeline-body">
+                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
+                        weebly ning heekya handango imeem plugg dopplr jibjab, movity
+                        jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
+                        quora plaxo ideeli hulu weebly balihoo...
+                      </div>
+                      <div class="timeline-footer">
+                        <a class="btn btn-primary btn-xs">Read more</a>
+                        <a class="btn btn-danger btn-xs">Delete</a>
+                      </div>
+                    </div>
+                  </li>
+                  <!-- END timeline item -->
+                  <!-- timeline item -->
+                  <li>
+                    <i class="fa fa-user bg-aqua"></i>
+
+                    <div class="timeline-item">
+                      <span class="time"><i class="fa fa-clock-o"></i> 5 mins ago</span>
+
+                      <h3 class="timeline-header no-border"><a href="#">Sarah Young</a> accepted your friend request
+                      </h3>
+                    </div>
+                  </li>
+                  <!-- END timeline item -->
+                  <!-- timeline item -->
+                  <li>
+                    <i class="fa fa-comments bg-yellow"></i>
+
+                    <div class="timeline-item">
+                      <span class="time"><i class="fa fa-clock-o"></i> 27 mins ago</span>
+
+                      <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
+
+                      <div class="timeline-body">
+                        Take me to your leader!
+                        Switzerland is small and neutral!
+                        We are more like Germany, ambitious and misunderstood!
+                      </div>
+                      <div class="timeline-footer">
+                        <a class="btn btn-warning btn-flat btn-xs">View comment</a>
+                      </div>
+                    </div>
+                  </li>
+                  <!-- END timeline item -->
+                  <!-- timeline time label -->
+                  <li class="time-label">
+                        <span class="bg-green">
+                          3 Jan. 2014
+                        </span>
+                  </li>
+                  <!-- /.timeline-label -->
+                  <!-- timeline item -->
+                  <li>
+                    <i class="fa fa-camera bg-purple"></i>
+
+                    <div class="timeline-item">
+                      <span class="time"><i class="fa fa-clock-o"></i> 2 days ago</span>
+
+                      <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
+
+                      <div class="timeline-body">
+                        <img src="http://placehold.it/150x100" alt="..." class="margin">
+                        <img src="http://placehold.it/150x100" alt="..." class="margin">
+                        <img src="http://placehold.it/150x100" alt="..." class="margin">
+                        <img src="http://placehold.it/150x100" alt="..." class="margin">
+                      </div>
+                    </div>
+                  </li>
+                  <!-- END timeline item -->
+                  <li>
+                    <i class="fa fa-clock-o bg-gray"></i>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- /.tab-content -->
+          </div>
+          <!-- /.nav-tabs-custom -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

@@ -29,9 +29,15 @@ Rails.application.routes.draw do
     get 'course' => 'admin#course' , as: 'admin_all_courses'
     get 'student' => 'admin#students' , as: 'admin_students'
     get 'instructor' => 'admin#instructor' , as: 'admin_instructor'
+
+
     get 'add_course' => 'admin#add_course' , as: 'admin_add_course'
     get 'course_:id' => 'admin#specific_course' , as: 'admin_specific_course'
     post 'course_image' => 'admin#update_image_course' , as: 'admin_update_image_course'
+    get 'pending_course' => 'admin#pending_course' , as: 'admin_pending_course'
+    get 'approve_course_:id' => 'admin#approve_course' , as: 'admin_approve_course'
+    get 'approved_course' => 'admin#approved_course' , as: 'admin_approved_course'
+    get 'block_course_:id' => 'admin#block_course' , as: 'admin_block_course'
 
     post 'video' => 'admin#add_video' , as: 'admin_add_video'
 
@@ -58,6 +64,9 @@ Rails.application.routes.draw do
     get 'course' => 'instructor#course' , as: 'instructor_course'
     get 'add_course' => 'instructor#add_course' , as: 'instructor_add_course'
     post 'course' => 'instructor#save_course' , as: 'instructor_save_course'
+    get 'course_:id' => 'instructor#specific_course' , as: 'instructor_specific_course'
+
+    post 'lesson' => 'instructor#save_lessons' , as: 'instructor_save_lesson'
 
   end
 

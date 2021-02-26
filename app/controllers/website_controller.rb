@@ -57,13 +57,13 @@ class WebsiteController < ApplicationController
 	end
 
 	def index
-		@course = Course.all.order(created_at: :desc).limit(4)
+		@course = Course.approved.order(created_at: :desc).limit(4)
 		@articles = Article.order(created_at: :desc).limit(2)
 		@announc = Announcement.order(created_at: :desc).limit(2)
 	end
 
 	def course
-		@course = Course.all.order(created_at: :desc)
+		@course = Course.approved.order(created_at: :desc)
 	end
 
 	def teacher
@@ -71,7 +71,9 @@ class WebsiteController < ApplicationController
 	end
 
 	def specific_course
-		@course = Course.includes(:outlines).find(params[:id])
+		unless @course = Course.approved.includes(:outlines).find(params[:id])
+			redirect_to course_path , notice: "Cant find ID of course"
+		end
 	end
 
 	def add_course
