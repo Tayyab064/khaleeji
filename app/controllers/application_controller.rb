@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
 
   private
 
+
+  def allow_iframe
+    response.headers.except! 'X-Frame-Options'
+  end
+
   def restrict_user
     restrict_access_to_user || render_unauthorized
   end

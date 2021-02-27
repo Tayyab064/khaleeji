@@ -1,4 +1,5 @@
 class InstructorController < ApplicationController
+	after_action :allow_iframe
 	before_action :is_instructor , except: [:signup , :signin , :approve_signin , :approve_signup]
 
 	def signup
