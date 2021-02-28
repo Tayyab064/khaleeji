@@ -24,7 +24,7 @@ language perfectly. We will teach you Arabic letters and how they look like in t
             <div class="parts-container-slide" id="slide5">
                 <div class="header">
                     <span>Featured courses</span>
-                    <h2><a href="<%= course_path %>"><%= @course.first.title %></a></h2>
+                    <h2><a href="<%= course_path %>"><%= @featured.title %></a></h2>
                 </div>
                 <div class="body-container">
                     <div class="row">
@@ -34,7 +34,7 @@ language perfectly. We will teach you Arabic letters and how they look like in t
                         <div class="col-md-5 img-con-s">
                             <div class="item-container">
                                 <div class="col-md-10 text-item">
-                                    <span><%= simple_format(@course.first.description) %></span>
+                                    <span><%= simple_format(@featured.description) %></span>
                                 </div>
                                 <div class="col-md-2">
                                     <span class="homeicon mdi mdi-comment"></span>
@@ -42,7 +42,7 @@ language perfectly. We will teach you Arabic letters and how they look like in t
                             </div>
                             <div class="item-container">
                                 <div class="col-md-10 timer-item">
-                                    <% su = @course.first.videos.pluck(:duration).sum %>
+                                    <% su = @featured.videos.pluck(:duration).sum %>
                                     <% if su > 59 %>
                                         <% hou_su = su / 60 %>
                                         <% min_su = su % 60 %>
@@ -57,7 +57,7 @@ language perfectly. We will teach you Arabic letters and how they look like in t
                             </div>
                             <div class="item-container">
                                 <div class="col-md-10 price-item">
-                                    <label>AED <%= @course.first.price %></label>
+                                    <label>AED <%= @featured.price %></label>
                                 </div>
                                 <div class="col-md-2">
                                     <span class="homeicon mdi mdi-wallet"></span>

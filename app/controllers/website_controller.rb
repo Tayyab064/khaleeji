@@ -61,6 +61,7 @@ class WebsiteController < ApplicationController
 		@course = Course.approved.order(created_at: :desc).limit(4)
 		@articles = Article.order(created_at: :desc).limit(2)
 		@announc = Announcement.order(created_at: :desc).limit(2)
+		@featured = Course.find(1)
 	end
 
 	def course
